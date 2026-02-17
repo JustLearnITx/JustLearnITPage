@@ -1,3 +1,31 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 * {
     background-color: black;
+    font-family: "JetBrains Mono", monospace;
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#header {
+    color: white;
+    font-size: 112px;
+    margin: 0px;
+}
+
+#explore-button {
+    color: white;
+    font-size: 24px;
+    border: none;
 }
