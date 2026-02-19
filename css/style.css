@@ -27,5 +27,16 @@ body {
 #explore-button {
     color: white;
     font-size: 24px;
-    border: none;
+    padding: 10px;
+    border: 1px dashed white;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    cursor: pointer;
+}
+
+#explore-button:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
