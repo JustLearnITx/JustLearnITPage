@@ -1,11 +1,13 @@
+* {
+    font-family: "JetBrains Mono", monospace;
+}
+
 html,
 body {
     margin: 0;
     padding: 0;
     height: 100%;
-
     background-color: black;
-    font-family: "JetBrains Mono", monospace;
 }
 
 #container {
@@ -32,6 +34,7 @@ body {
 }
 
 .explore-btn {
+    background-color: black;
     color: white;
     font-size: 24px;
     padding: 10px;
