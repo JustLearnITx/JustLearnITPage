@@ -1,68 +1,68 @@
 * {
-    font-family: "JetBrains Mono", monospace;
+	font-family: "JetBrains Mono", monospace;
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: black;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background-color: black;
 }
 
 #container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 }
 
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	flex: 1;
 }
 
 .title {
-    color: white;
-    font-size: 112px;
-    margin: 0px;
-    transition: all 0.3s ease;
-    cursor: default;
+	color: white;
+	font-size: 112px;
+	margin: 0px;
+	transition: all 0.3s ease;
+	cursor: default;
 }
 
 .explore-btn {
-    background-color: black;
-    color: white;
-    font-size: 24px;
-    padding: 10px;
-    border: 1px dashed white;
-    border-radius: 4px;
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    cursor: pointer;
+	background-color: black;
+	color: white;
+	font-size: 24px;
+	padding: 10px;
+	border: 1px dashed white;
+	border-radius: 4px;
+	transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	cursor: pointer;
 }
 
 .explore-btn:hover {
-    background-color: white;
-    color: black;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+	background-color: white;
+	color: black;
+	transform: scale(1.1);
+	box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 .site-footer {
-    color: white;
-    padding: 20px;
-    width: 100%;
-    text-align: left;
-    box-sizing: border-box;
+	color: white;
+	padding: 20px;
+	width: 100%;
+	text-align: left;
+	box-sizing: border-box;
 }
 
 a {
-    color: white;
+	color: white;
 }
 
 a:visited {
-    color: white;
+	color: white;
 }
