@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+* {
+	color: white;
+	background-color: black;
+	font-family: "JetBrains Mono";
+}
+
+html,
+body {
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#main_content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	flex-direction: column;
+	gap: 5px;
+}
+
+#main_header {
+	margin: 0;
+	font-size: 192px;
+}
+
+#explore_courses_button {
+	font-size: 32px;
+	padding: 10px;
+	border: 1px dashed white;
+}
+
+footer {
+	text-align: left;
+	padding: 0 0 5px 10px;
+}
+
+a {
+	font-weight: bold;
+}
