@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
 * {
 	color: white;
@@ -10,9 +10,7 @@ html,
 body {
 	margin: 0;
 	height: 100%;
-	overflow: hidden;
 	display: flex;
-	justify-content: center;
 	flex-direction: column;
 }
 
@@ -20,7 +18,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 100vh;
+	flex: 1;
 	flex-direction: column;
 	gap: 5px;
 }
@@ -31,9 +29,21 @@ body {
 }
 
 #explore_courses_button {
+	font-weight: 400;
 	font-size: 32px;
 	padding: 10px;
 	border: 1px dashed white;
+	border-radius: 10px;
+	text-decoration: none;
+	transition:
+		background-color 0.3s,
+		color 0.3s;
+}
+
+#explore_courses_button:hover {
+	background-color: white;
+	color: black;
+	cursor: pointer;
 }
 
 footer {
