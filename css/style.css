@@ -14,7 +14,7 @@ body {
 	flex-direction: column;
 }
 
-#main_content {
+.main_content {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -32,7 +32,7 @@ body {
 	font-weight: 400;
 	font-size: 32px;
 	padding: 10px;
-	border: 1px dashed white;
+	border: 1px dashed gray;
 	border-radius: 10px;
 	text-decoration: none;
 	transition:
@@ -47,10 +47,34 @@ body {
 }
 
 footer {
-	text-align: left;
-	padding: 0 0 5px 10px;
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+span {
+	margin: 0 20px 10px 20px;
 }
 
 a {
 	font-weight: bold;
+}
+
+a:hover {
+	cursor: pointer;
+}
+
+#content_header {
+	font-size: 64px;
+}
+
+#courses_content {
+	font-size: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid gray;
+	border-radius: 10px;
+	height: 75%;
+	width: 75%;
 }
