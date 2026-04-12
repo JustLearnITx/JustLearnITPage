@@ -1,20 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
 * {
-	color: white;
-	background-color: black;
-	font-family: "JetBrains Mono";
+	box-sizing: border-box;
 }
 
-html,
 body {
 	margin: 0;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	color: white;
+	background-color: black;
+	font-family: "JetBrains Mono", monospace;
 }
 
-.main_content {
+html {
+	height: 100%;
+}
+
+.main-content {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -23,12 +27,12 @@ body {
 	gap: 5px;
 }
 
-#main_header {
+.main-header {
 	margin: 0;
 	font-size: 192px;
 }
 
-#explore_courses_button {
+.explore-courses-button {
 	font-weight: 400;
 	font-size: 32px;
 	padding: 10px;
@@ -40,7 +44,7 @@ body {
 		color 0.3s;
 }
 
-#explore_courses_button:hover {
+.explore-courses-button:hover {
 	background-color: white;
 	color: black;
 	cursor: pointer;
@@ -52,23 +56,26 @@ footer {
 	justify-content: space-between;
 }
 
-span {
+.footer-left,
+.footer-right {
 	margin: 0 20px 10px 20px;
 }
 
 a {
 	font-weight: bold;
+	color: inherit;
+	text-decoration: underline;
 }
 
 a:hover {
 	cursor: pointer;
 }
 
-#content_header {
+.content-header {
 	font-size: 64px;
 }
 
-#courses_content {
+.courses-content {
 	font-size: 32px;
 	display: flex;
 	align-items: center;
