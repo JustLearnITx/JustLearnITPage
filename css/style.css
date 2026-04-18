@@ -1,87 +1,134 @@
+/* Imports */
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
+/* Reset */
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Base */
+html,
+body {
+  height: 100%;
 }
 
 body {
-	margin: 0;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	color: white;
-	background-color: black;
-	font-family: "JetBrains Mono", monospace;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: black;
+  font-family: "JetBrains Mono", monospace;
 }
 
-html {
-	height: 100%;
+/* Main */
+#main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.main-content {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex: 1;
-	flex-direction: column;
-	gap: 5px;
+/* Headers */
+#main-header {
+  margin: 0;
+  font-size: 192px;
 }
 
-.main-header {
-	margin: 0;
-	font-size: 192px;
+#content-header {
+  font-size: 64px;
 }
 
-.explore-courses-button {
-	font-weight: 400;
-	font-size: 32px;
-	padding: 10px;
-	border: 1px dashed gray;
-	border-radius: 10px;
-	text-decoration: none;
-	transition:
-		background-color 0.3s,
-		color 0.3s;
+/* Interactive */
+.explore-courses-button,
+.link-container {
+  font-weight: 400;
+  font-size: 32px;
+  padding: 10px;
+  border: 1px dashed gray;
+  border-radius: 10px;
+  text-decoration: none;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
-.explore-courses-button:hover {
-	background-color: white;
-	color: black;
-	cursor: pointer;
+.link-container {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+.explore-courses-button:hover,
+.link-container:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Links */
+a {
+  font-weight: bold;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.link-name a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+/* Footer */
 footer {
-	display: flex;
-	width: 100%;
-	justify-content: space-between;
+  display: flex;
+  width: 100%;
+}
+
+.footer-left {
+  width: 10%;
+}
+
+#footer-links {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 20px;
 }
 
 .footer-left,
-.footer-right {
-	margin: 0 20px 10px 20px;
+#footer-links {
+  margin: 0 20px 10px 20px;
 }
 
-a {
-	font-weight: bold;
-	color: inherit;
-	text-decoration: underline;
+/* Content */
+#courses-content {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid gray;
+  border-radius: 10px;
+  height: 75%;
+  width: 75%;
 }
 
-a:hover {
-	cursor: pointer;
+#links-content {
+  padding-top: 30px;
+  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  height: 75%;
+  width: 20%;
 }
 
-.content-header {
-	font-size: 64px;
-}
-
-.courses-content {
-	font-size: 32px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: 2px solid gray;
-	border-radius: 10px;
-	height: 75%;
-	width: 75%;
-}
