@@ -1,87 +1,98 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	margin: 0;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	color: white;
-	background-color: black;
-	font-family: "JetBrains Mono", monospace;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: black;
+  font-family: "JetBrains Mono", monospace;
 }
 
 html {
-	height: 100%;
+  height: 100%;
 }
 
 .main-content {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex: 1;
-	flex-direction: column;
-	gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .main-header {
-	margin: 0;
-	font-size: 192px;
+  margin: 0;
+  font-size: 192px;
 }
 
 .explore-courses-button {
-	font-weight: 400;
-	font-size: 32px;
-	padding: 10px;
-	border: 1px dashed gray;
-	border-radius: 10px;
-	text-decoration: none;
-	transition:
-		background-color 0.3s,
-		color 0.3s;
+  font-weight: 400;
+  font-size: 32px;
+  padding: 10px;
+  border: 1px dashed gray;
+  border-radius: 10px;
+  text-decoration: none;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .explore-courses-button:hover {
-	background-color: white;
-	color: black;
-	cursor: pointer;
+  background-color: white;
+  color: black;
+  cursor: pointer;
 }
 
 footer {
-	display: flex;
-	width: 100%;
-	justify-content: space-between;
+  display: flex;
+  width: 100%;
+}
+
+.footer-left {
+  width: 10%;
+}
+
+#footer-links {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  gap: 20px;
 }
 
 .footer-left,
-.footer-right {
-	margin: 0 20px 10px 20px;
+#footer-links {
+  margin: 0 20px 10px 20px;
 }
 
 a {
-	font-weight: bold;
-	color: inherit;
-	text-decoration: underline;
+  font-weight: bold;
+  color: inherit;
+  text-decoration: underline;
 }
 
 a:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .content-header {
-	font-size: 64px;
+  font-size: 64px;
 }
 
 .courses-content {
-	font-size: 32px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: 2px solid gray;
-	border-radius: 10px;
-	height: 75%;
-	width: 75%;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid gray;
+  border-radius: 10px;
+  height: 75%;
+  width: 75%;
 }
