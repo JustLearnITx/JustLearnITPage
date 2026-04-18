@@ -4,9 +4,13 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  height: 100%;
   display: flex;
   flex-direction: column;
   color: white;
@@ -14,11 +18,7 @@ body {
   font-family: "JetBrains Mono", monospace;
 }
 
-html {
-  height: 100%;
-}
-
-.main-content {
+#main-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,9 +27,13 @@ html {
   gap: 5px;
 }
 
-.main-header {
+#main-header {
   margin: 0;
   font-size: 192px;
+}
+
+#content-header {
+  font-size: 64px;
 }
 
 .explore-courses-button,
@@ -59,7 +63,6 @@ html {
 .link-container:hover {
   background-color: white;
   color: black;
-  cursor: pointer;
 }
 
 .link-name a {
@@ -80,7 +83,7 @@ footer {
   width: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  justify-content: flex-end;
   gap: 20px;
 }
 
@@ -95,15 +98,7 @@ a {
   text-decoration: underline;
 }
 
-a:hover {
-  cursor: pointer;
-}
-
-.content-header {
-  font-size: 64px;
-}
-
-.courses-content {
+#courses-content {
   font-size: 32px;
   display: flex;
   align-items: center;
@@ -114,18 +109,16 @@ a:hover {
   width: 75%;
 }
 
-.links-content {
+#links-content {
   padding-top: 30px;
   font-size: 32px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 20px;
   border: 2px solid gray;
   border-radius: 10px;
   height: 75%;
   width: 20%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: flex-start;
 }
