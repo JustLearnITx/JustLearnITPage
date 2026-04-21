@@ -62,7 +62,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0rem 0.5rem 1.5rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 0.5rem 1.5rem;
 }
 
 .explore-courses-button:hover,
