@@ -107,6 +107,10 @@ body {
   color: gray;
 }
 
+.course-post:hover .update-date,
+.course-post:focus-within .update-date {
+  color: currentColor;
+}
 /* Links */
 a {
   font-weight: bold;
