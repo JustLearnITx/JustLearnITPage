@@ -29,6 +29,7 @@ body {
   flex: 1;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Headers */
@@ -66,11 +67,50 @@ body {
 }
 
 .explore-courses-button:hover,
-.link-container:hover {
+.link-container:hover,
+.course-post:hover {
   background-color: white;
   color: black;
 }
 
+.course-post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed gray;
+  width: 100%;
+  max-width: 30rem;
+  min-height: 20rem;
+  border-radius: 1rem;
+  flex-direction: column;
+  gap: 1rem;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.course-post .course-header {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.course-post .short-desc {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.course-post .update-date {
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 0;
+  color: gray;
+}
+
+.course-post:hover .update-date,
+.course-post:focus-within .update-date {
+  color: currentColor;
+}
 /* Links */
 a {
   font-weight: bold;
