@@ -1,12 +1,17 @@
-/* Imports */
+/* ==========================================================================
+   1. IMPORTS & RESET
+   ========================================================================== */
+
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
-/* Reset */
 * {
   box-sizing: border-box;
 }
 
-/* Base */
+/* ==========================================================================
+   2. BASE STYLES
+   ========================================================================== */
+
 html,
 body {
   height: 100%;
@@ -21,7 +26,16 @@ body {
   font-family: "JetBrains Mono", monospace;
 }
 
-/* Main */
+a {
+  font-weight: bold;
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   3. LAYOUT
+   ========================================================================== */
+
 #main-content {
   display: flex;
   align-items: center;
@@ -32,7 +46,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Headers */
+/* Typography / Headers */
 #main-header {
   margin: 0;
   font-size: 12rem;
@@ -40,87 +54,6 @@ body {
 
 #content-header {
   font-size: 4rem;
-}
-
-/* Interactive */
-.explore-courses-button,
-.link-container {
-  font-weight: 400;
-  font-size: 2rem;
-  padding: 1rem;
-  border: 1px dashed gray;
-  border-radius: 1rem;
-  text-decoration: none;
-  transition:
-    background-color 0.3s,
-    color 0.3s;
-}
-
-.link-container {
-  width: 70%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0 0.5rem 1.5rem;
-}
-
-.explore-courses-button:hover,
-.link-container:hover,
-.course-post:hover {
-  background-color: white;
-  color: black;
-}
-
-.course-post {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px dashed gray;
-  width: 100%;
-  max-width: 30rem;
-  min-height: 20rem;
-  border-radius: 1rem;
-  flex-direction: column;
-  gap: 1rem;
-  transition:
-    background-color 0.3s,
-    color 0.3s;
-}
-
-.course-post .course-header {
-  font-size: 3rem;
-  margin: 0;
-}
-
-.course-post .short-desc {
-  text-align: center;
-  font-size: 1.5rem;
-  margin: 0;
-}
-
-.course-post .update-date {
-  text-align: center;
-  font-size: 1.25rem;
-  margin: 0;
-  color: gray;
-}
-
-.course-post:hover .update-date,
-.course-post:focus-within .update-date {
-  color: currentColor;
-}
-/* Links */
-a {
-  font-weight: bold;
-  color: inherit;
-  text-decoration: underline;
-}
-
-.link-name a {
-  text-decoration: none;
-  font-weight: 400;
 }
 
 /* Footer */
@@ -146,18 +79,118 @@ footer {
   margin: 0 1.5rem 1rem 1.5rem;
 }
 
-/* Content */
+/* ==========================================================================
+   4. COMPONENTS (Shared Styles)
+   ========================================================================== */
+
+/* Base Interactive Properties */
+.explore-courses-button,
+.link-container,
+.course-post {
+  padding: 1rem;
+  border-radius: 1rem;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+/* Shared Hover State */
+.explore-courses-button:hover,
+.link-container:hover,
+.course-post:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+/* Buttons & Link Containers */
+.explore-courses-button,
+.link-container {
+  font-weight: 400;
+  font-size: 2rem;
+  border: 1px dashed gray;
+  text-decoration: none;
+}
+
+/* Linktree specific container */
+.link-container {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 0.5rem 1.5rem;
+}
+
+.link-name a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+/* Course Card Component */
+.course-post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2.5px dashed gray;
+  width: 100%;
+  max-width: 30rem;
+  min-height: 20rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.course-post .course-header {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.course-post .short-desc {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.course-post .update-date {
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 0;
+  color: gray;
+}
+
+.course-post:hover .update-date,
+.course-post:focus-within .update-date {
+  color: currentColor;
+}
+
+/* ==========================================================================
+   5. PAGE-SPECIFIC LAYOUTS
+   ========================================================================== */
+
+/* Courses Page */
 #courses-content {
   font-size: 2rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   border: 2px solid gray;
   border-radius: 1rem;
-  height: 75%;
+  height: 70.5vh;
   width: 75%;
+  max-height: 75vh;
+  flex-direction: column;
+  gap: 4rem;
+  overflow-y: auto;
+  padding: 4rem 0;
 }
 
+.course-row {
+  display: flex;
+  gap: 4rem;
+}
+
+/* Linktree Page */
 #links-content {
   padding-top: 2rem;
   font-size: 2rem;
