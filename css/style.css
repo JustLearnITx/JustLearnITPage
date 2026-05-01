@@ -2,7 +2,13 @@
    1. IMPORTS & RESET
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/jetbrains-mono.woff2") format("woff2");
+}
 
 * {
   box-sizing: border-box;
@@ -36,7 +42,8 @@ a {
    3. LAYOUT
    ========================================================================== */
 
-#main-content {
+#main-content,
+#main-content-post {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,10 +64,17 @@ a {
   margin-bottom: 0;
 }
 
+#content-subheader {
+  font-size: 1.5rem;
+  margin-top: 0;
+  color: gray;
+}
+
 /* Footer */
 footer {
   display: flex;
   width: 100%;
+  margin-top: 1rem;
 }
 
 .footer-left {
@@ -162,6 +176,17 @@ footer {
   color: currentColor;
 }
 
+.course-row a {
+  display: block;
+  text-decoration: none;
+  font-weight: initial;
+}
+
+.course-row a:focus-visible .course-post {
+  outline: 3px solid currentColor;
+  outline-offset: 0.25rem;
+}
+
 /* ==========================================================================
    5. PAGE-SPECIFIC LAYOUTS
    ========================================================================== */
@@ -201,4 +226,35 @@ footer {
   border-radius: 1rem;
   height: auto;
   width: 20%;
+}
+
+/* Post Page */
+#post {
+  padding: 4rem 2rem;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  border: 2px solid gray;
+  border-radius: 1rem;
+  height: auto;
+  width: 40%;
+}
+
+#post .post-content {
+  align-items: center;
+  width: 100%;
+}
+
+.post-header {
+  text-align: left;
+  font-size: 1.5rem;
+  color: gray;
+  margin: 0.5rem;
+}
+
+#post p {
+  margin: 1.5rem 0.5rem;
 }
