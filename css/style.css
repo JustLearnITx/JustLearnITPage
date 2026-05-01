@@ -186,8 +186,14 @@ footer {
 }
 
 .course-row a {
+  display: block;
   text-decoration: none;
   font-weight: initial;
+}
+
+.course-row a:focus-visible .course-post {
+  outline: 3px solid currentColor;
+  outline-offset: 0.25rem;
 }
 
 /* ==========================================================================
