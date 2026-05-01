@@ -42,16 +42,7 @@ a {
    3. LAYOUT
    ========================================================================== */
 
-#main-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
+#main-content,
 #main-content-post {
   display: flex;
   align-items: center;
