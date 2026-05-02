@@ -263,17 +263,13 @@ footer {
   font-size: 1rem;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: flex-start;
   gap: 0.5rem;
   border: 2px solid gray;
   border-radius: 1rem;
   height: auto;
   width: 100%;
-}
-
-/* New additions */
-#sources {
-  align-items: flex-start;
 }
 
 #sources ul {
