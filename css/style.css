@@ -42,8 +42,7 @@ a {
    3. LAYOUT
    ========================================================================== */
 
-#main-content,
-#main-content-post {
+#main-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,4 +256,32 @@ footer {
 
 #post p {
   margin: 1.5rem 0.5rem;
+}
+
+#sources {
+  padding: 4rem 2rem;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  border: 2px solid gray;
+  border-radius: 1rem;
+  height: auto;
+  width: 100%;
+}
+
+/* New additions */
+#sources {
+  align-items: flex-start;
+}
+
+#sources ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sources ul li {
+  margin-bottom: 0.5rem;
 }
