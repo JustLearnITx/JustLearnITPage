@@ -2,6 +2,13 @@
    1. IMPORTS & RESET
    ========================================================================== */
 
+:root {
+  --main-content-color: white;
+  --main-bg-color: black;
+  --additional-content-color: gray;
+  --basic-unit: 1rem;
+}
+
 @font-face {
   font-display: swap;
   font-family: "JetBrains Mono";
@@ -27,8 +34,8 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  color: white;
-  background-color: black;
+  color: var(--main-content-color);
+  background-color: var(--main-bg-color);
   font-family: "JetBrains Mono", monospace;
 }
 
@@ -48,32 +55,32 @@ a {
   justify-content: center;
   flex: 1;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: var(--basic-unit);
+  margin-bottom: var(--basic-unit);
 }
 
 /* Typography / Headers */
 #main-header {
   margin: 0;
-  font-size: 12rem;
+  font-size: calc(12 * var(--basic-unit));
 }
 
 #content-header {
-  font-size: 4rem;
+  font-size: calc(4 * var(--basic-unit));
   margin-bottom: 0;
 }
 
 #content-subheader {
-  font-size: 1.5rem;
+  font-size: calc(1.5 * var(--basic-unit));
   margin-top: 0;
-  color: gray;
+  color: var(--additional-content-color);
 }
 
 /* Navigation */
 nav {
   display: flex;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: var(--basic-unit);
   position: fixed;
 }
 
@@ -86,12 +93,12 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  gap: 2rem;
+  gap: calc(2 * var(--basic-unit));
 }
 
 .nav-left,
 #nav-links {
-  margin: 0 1.5rem 1rem 1.5rem;
+  margin: 0 calc(1.5 * var(--basic-unit)) var(--basic-unit) calc(1.5 * var(--basic-unit));
 }
 
 /* ==========================================================================
@@ -102,8 +109,8 @@ nav {
 .explore-courses-button,
 .link-container,
 .course-post {
-  padding: 1rem;
-  border-radius: 1rem;
+  padding: var(--basic-unit);
+  border-radius: var(--basic-unit);
   transition: all 0.3s;
 }
 
@@ -111,8 +118,8 @@ nav {
 .explore-courses-button:hover,
 .link-container:hover,
 .course-post:hover {
-  background-color: white;
-  color: black;
+  background-color: var(--main-content-color);
+  color: var(--main-bg-color);
   cursor: pointer;
 }
 
@@ -120,8 +127,8 @@ nav {
 .explore-courses-button,
 .link-container {
   font-weight: 400;
-  font-size: 2rem;
-  border: 1px dashed gray;
+  font-size: calc(2 * var(--basic-unit));
+  border: 1px dashed var(--additional-content-color);
   text-decoration: none;
 }
 
@@ -135,7 +142,7 @@ nav {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: var(--basic-unit);
 }
 
 /* Course Card Component */
@@ -143,30 +150,30 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2.5px dashed gray;
+  border: 2.5px dashed var(--additional-content-color);
   width: 100%;
-  max-width: 30rem;
-  min-height: 20rem;
+  max-width: calc(30 * var(--basic-unit));
+  min-height: calc(20 * var(--basic-unit));
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--basic-unit);
 }
 
 .course-post .course-header {
-  font-size: 3rem;
+  font-size: calc(3 * var(--basic-unit));
   margin: 0;
 }
 
 .course-post .short-desc {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: calc(1.5 * var(--basic-unit));
   margin: 0;
 }
 
 .course-post .update-date {
   text-align: center;
-  font-size: 1.25rem;
+  font-size: calc(1.25 * var(--basic-unit));
   margin: 0;
-  color: gray;
+  color: var(--additional-content-color);
 }
 
 .course-post:hover .update-date,
@@ -182,7 +189,7 @@ nav {
 
 .course-row a:focus-visible .course-post {
   outline: 3px solid currentColor;
-  outline-offset: 0.25rem;
+  outline-offset: calc(0.25 * var(--basic-unit));
 }
 
 /* ==========================================================================
@@ -191,52 +198,52 @@ nav {
 
 /* Courses Page */
 #courses-content {
-  font-size: 2rem;
+  font-size: calc(2 * var(--basic-unit));
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  border: 2px solid gray;
-  border-radius: 1rem;
+  border: 2px solid var(--additional-content-color);
+  border-radius: var(--basic-unit);
   height: 70.5vh;
   width: 75%;
   max-height: 75vh;
   flex-direction: column;
-  gap: 4rem;
+  gap: calc(4 * var(--basic-unit));
   overflow-y: auto;
-  padding: 4rem 0;
+  padding: calc(4 * var(--basic-unit)) 0;
 }
 
 .course-row {
   display: flex;
-  gap: 4rem;
+  gap: calc(4 * var(--basic-unit));
 }
 
 /* Linktree Page */
 #links-content {
-  padding: 4rem 0;
-  font-size: 2rem;
+  padding: calc(4 * var(--basic-unit)) 0;
+  font-size: calc(2 * var(--basic-unit));
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 2rem;
-  border: 2px solid gray;
-  border-radius: 1rem;
+  gap: calc(2 * var(--basic-unit));
+  border: 2px solid var(--basic-unit);
+  border-radius: var(--basic-unit);
   height: auto;
   width: 20%;
 }
 
 /* Post Page */
 #post {
-  padding: 4rem 2rem;
-  font-size: 1rem;
+  padding: calc(4 * var(--basic-unit)) calc(2 * var(--basic-unit));
+  font-size: var(--basic-unit);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.5rem;
-  border: 2px solid gray;
-  border-radius: 1rem;
+  gap: calc(0.5 * var(--basic-unit));
+  border: 2px solid var(--additional-content-color);
+  border-radius: var(--basic-unit);
   height: auto;
   width: 40%;
 }
@@ -248,25 +255,25 @@ nav {
 
 .post-header {
   text-align: left;
-  font-size: 1.5rem;
+  font-size: calc(1.5 * var(--basic-unit));
   color: gray;
-  margin: 0.5rem;
+  margin: calc(0.5 * var(--basic-unit));
 }
 
 #post p {
-  margin: 1.5rem 0.5rem;
+  margin: calc(1.5 * var(--basic-unit)) calc(0.5 * var(--basic-unit));
 }
 
 #sources {
-  padding: 4rem 2rem;
-  font-size: 1rem;
+  padding: calc(4 * var(--basic-unit)) calc(2 * var(--basic-unit));
+  font-size: var(--basic-unit);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 0.5rem;
-  border: 2px solid gray;
-  border-radius: 1rem;
+  gap: calc(0.5 * var(--basic-unit));
+  border: 2px solid var(--additional-content-color);
+  border-radius: var(--basic-unit);
   height: auto;
   width: 100%;
 }
@@ -278,5 +285,5 @@ nav {
 }
 
 #sources ul li {
-  margin-bottom: 0.5rem;
+  margin-bottom: calc(0.5 * var(--basic-unit));
 }
