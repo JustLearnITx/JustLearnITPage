@@ -256,7 +256,7 @@ nav {
 .post-header {
   text-align: left;
   font-size: calc(1.5 * var(--basic-unit));
-  color: gray;
+  color: var(--additional-content-color);
   margin: calc(0.5 * var(--basic-unit));
 }
 
