@@ -227,7 +227,7 @@ nav {
   align-items: center;
   justify-content: flex-start;
   gap: calc(2 * var(--basic-unit));
-  border: 2px solid var(--basic-unit);
+  border: 2px solid var(--additional-content-color);
   border-radius: var(--basic-unit);
   height: auto;
   width: 20%;
