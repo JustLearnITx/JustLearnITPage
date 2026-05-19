@@ -62,7 +62,7 @@ a {
 /* Typography / Headers */
 #main-header {
   margin: 0;
-  font-size: calc(12 * var(--basic-unit));
+  font-size: clamp(calc(3 * var(--basic-unit)), 12vw, calc(12 * var(--basic-unit)));
 }
 
 #content-header {
@@ -126,7 +126,7 @@ nav {
 .explore-courses-button,
 .link-container {
   font-weight: 400;
-  font-size: calc(2 * var(--basic-unit));
+  font-size: clamp(calc(1 * var(--basic-unit)), 3vw, calc(2 * var(--basic-unit)));
   border: 1px dashed var(--additional-content-color);
   text-decoration: none;
 }
