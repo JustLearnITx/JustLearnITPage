@@ -84,7 +84,10 @@ nav {
 }
 
 .nav-left {
-  width: 10%;
+  width: 15%;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 }
 
 #nav-links {
@@ -93,6 +96,9 @@ nav {
   flex-direction: row;
   justify-content: flex-end;
   gap: calc(2 * var(--basic-unit));
+  @media (max-width: 1024px) {
+    justify-content: center;
+  }
 }
 
 .nav-left,
