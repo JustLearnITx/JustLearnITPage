@@ -97,6 +97,7 @@ nav {
   justify-content: flex-end;
   gap: calc(2 * var(--basic-unit));
   @media (max-width: 1024px) {
+    width: 100%;
     justify-content: center;
   }
 }
