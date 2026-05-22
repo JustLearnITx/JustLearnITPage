@@ -133,14 +133,24 @@ nav {
 .explore-courses-button,
 .link-container {
   font-weight: 400;
-  font-size: clamp(calc(1 * var(--basic-unit)), 3vw, calc(2 * var(--basic-unit)));
   border: 1px dashed var(--additional-content-color);
   text-decoration: none;
 }
 
+.explore-courses-button {
+  font-size: clamp(calc(1 * var(--basic-unit)), 3vw, calc(2 * var(--basic-unit)));
+}
+
 /* Linktree specific container */
 .link-container {
-  width: 70%;
+  width: 75%;
+  @media (min-width: 1537px) {
+    font-size: clamp(calc(1.5 * var(--basic-unit)), 2vw, calc(2.5 * var(--basic-unit)));
+  }
+  @media (max-width: 1536px) {
+    padding: calc(2 * var(--basic-unit));
+    font-size: calc(2.5 * var(--basic-unit));
+  }
 }
 
 .link-container div {
@@ -149,6 +159,21 @@ nav {
   justify-content: center;
   align-items: center;
   gap: var(--basic-unit);
+}
+
+.link-name {
+  @media (max-width: 1536px) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
 }
 
 /* Course Card Component */
@@ -237,6 +262,13 @@ nav {
   border-radius: var(--basic-unit);
   height: auto;
   width: 20%;
+  @media (max-width: 1024px) {
+    width: 50%;
+    font-size: calc(2.5 * var(--basic-unit));
+  }
+  @media (max-width: 480px) {
+    width: 60%;
+  }
 }
 
 /* Post Page */
