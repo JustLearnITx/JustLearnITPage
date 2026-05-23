@@ -159,20 +159,20 @@ nav {
 }
 
 .course-post .course-header {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   margin: 0;
   text-align: center;
 }
 
 .course-post .short-desc {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   margin: 0;
 }
 
 .course-post .update-date {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
   margin: 0;
   color: var(--additional-content-color);
 }
@@ -214,9 +214,9 @@ nav {
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: auto;
   gap: calc(4 * var(--basic-unit));
-  height: 70.5vh;
-  width: 85%;
-  max-height: 75vh;
+  height: 70vh;
+  width: 95%;
+  max-width: 1200px;
   overflow-y: auto;
   padding: calc(4 * var(--basic-unit));
 }
@@ -231,7 +231,8 @@ nav {
   justify-content: flex-start;
   gap: calc(2 * var(--basic-unit));
   height: auto;
-  width: 20%;
+  width: 90%;
+  max-width: 400px;
 }
 
 /* Post */
@@ -244,7 +245,8 @@ nav {
   justify-content: flex-start;
   gap: calc(0.5 * var(--basic-unit));
   height: auto;
-  width: 40%;
+  width: 95%;
+  max-width: 800px;
 }
 
 #post .post-content {
@@ -283,7 +285,7 @@ nav {
 }
 
 #sources ul li {
-  margin-bottom: calc(0.5 * var(--basic-unit));
+  margin-bottom: calc(1.5 * var(--basic-unit));
 }
 
 /* ==========================================================================
@@ -318,7 +320,8 @@ nav {
 
 @media (max-width: 1400px) {
   #courses-content {
-    width: 90%;
+    width: 95%;
+    max-width: none;
     gap: calc(2 * var(--basic-unit));
     padding: calc(2 * var(--basic-unit));
   }
@@ -331,20 +334,23 @@ nav {
 
   nav {
     justify-content: center;
+    padding: 0 var(--basic-unit);
   }
 
   #nav-links {
     width: 100%;
     justify-content: center;
+    gap: var(--basic-unit);
   }
 
   #courses-content {
     grid-template-columns: repeat(2, 1fr);
     width: 95%;
+    height: 75vh;
   }
 
   #links-content {
-    width: 50%;
+    width: 90%;
     font-size: calc(2.5 * var(--basic-unit));
   }
 }
@@ -354,11 +360,22 @@ nav {
     grid-template-columns: 1fr;
     gap: var(--basic-unit);
     padding: var(--basic-unit);
+    height: 80vh;
   }
 }
 
 @media (max-width: 480px) {
-  #links-content {
-    width: 60%;
+  #content-header {
+    font-size: calc(2.5 * var(--basic-unit));
+  }
+
+  #courses-content {
+    width: 98%;
+    height: 85vh;
+    padding: 0.5rem;
+  }
+
+  #post {
+    padding: calc(2 * var(--basic-unit)) var(--basic-unit);
   }
 }
