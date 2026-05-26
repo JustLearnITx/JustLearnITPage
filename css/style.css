@@ -8,6 +8,13 @@
 	--color-bg: black;
 	--color-muted: gray;
 
+	/* Semantic Colors */
+	--color-text: var(--color-main);
+	--color-surface: var(--color-bg);
+	--color-border: var(--color-muted);
+	--color-hover-bg: var(--color-main);
+	--color-hover-text: var(--color-bg);
+
 	/* Spacing Scale */
 	--unit: 1rem;
 	--space-xs: calc(0.5 * var(--unit));
@@ -21,10 +28,22 @@
 	--font-size-h1: clamp(calc(3 * var(--unit)), 12vw, calc(12 * var(--unit)));
 	--font-size-h2: clamp(calc(2 * var(--unit)), 12vw, calc(4 * var(--unit)));
 	--font-size-h3: calc(1.5 * var(--unit));
+	--font-size-course-title: clamp(1.5rem, 4vw, 2rem);
+	--font-size-course-desc: clamp(0.9rem, 2.5vw, 1.1rem);
+	--font-weight-normal: 400;
+	--font-weight-bold: 700;
+
+	/* Borders */
+	--border-width: 2px;
+	--border-width-thick: 2.5px;
+	--border-style: solid;
+	--border-style-interactive: dashed;
 
 	/* Interactive & Layout */
 	--radius: var(--unit);
 	--transition: all 0.3s ease;
+	--focus-outline: 3px solid var(--color-main);
+	--focus-offset: var(--space-xs);
 	--max-width-courses: 1200px;
 	--max-width-post: 800px;
 	--max-width-links: 400px;
@@ -55,13 +74,13 @@ body {
 	margin: 0;
 	display: flex;
 	flex-direction: column;
-	color: var(--color-main);
-	background-color: var(--color-bg);
+	color: var(--color-text);
+	background-color: var(--color-surface);
 	font-family: var(--font-main);
 }
 
 a {
-	font-weight: bold;
+	font-weight: var(--font-weight-bold);
 	color: inherit;
 	text-decoration: underline;
 }
@@ -95,7 +114,7 @@ a {
 #content-subheader {
 	font-size: var(--font-size-h3);
 	margin-top: 0;
-	color: var(--color-muted);
+	color: var(--color-border);
 }
 
 /* Navigation */
@@ -132,16 +151,16 @@ nav {
 .explore-courses-button:hover,
 .link-container:hover,
 .course-post:hover {
-	background-color: var(--color-main);
-	color: var(--color-bg);
+	background-color: var(--color-hover-bg);
+	color: var(--color-hover-text);
 	cursor: pointer;
 }
 
 /* Dashed-border interactive elements */
 .explore-courses-button,
 .link-container {
-	font-weight: 400;
-	border: 1px dashed var(--color-muted);
+	font-weight: var(--font-weight-normal);
+	border: 1px var(--border-style-interactive) var(--color-border);
 	text-decoration: none;
 }
 
@@ -171,7 +190,7 @@ nav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 2.5px dashed var(--color-muted);
+	border: var(--border-width-thick) var(--border-style-interactive) var(--color-border);
 	flex-direction: column;
 	gap: var(--space-s);
 	box-sizing: border-box;
@@ -180,14 +199,14 @@ nav {
 }
 
 .course-post .course-header {
-	font-size: clamp(1.5rem, 4vw, 2rem);
+	font-size: var(--font-size-course-title);
 	margin: 0;
 	text-align: center;
 }
 
 .course-post .short-desc {
 	text-align: center;
-	font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+	font-size: var(--font-size-course-desc);
 	margin: 0;
 }
 
@@ -195,7 +214,7 @@ nav {
 	text-align: center;
 	font-size: clamp(0.7rem, 2vw, 0.9rem);
 	margin: 0;
-	color: var(--color-muted);
+	color: var(--color-border);
 }
 
 .course-post:hover .update-date,
@@ -211,8 +230,8 @@ nav {
 }
 
 #courses-content a:focus-visible .course-post {
-	outline: 3px solid currentColor;
-	outline-offset: var(--space-xs);
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-offset);
 }
 
 /* ==========================================================================
@@ -224,7 +243,7 @@ nav {
 #links-content,
 #post,
 #sources {
-	border: 2px solid var(--color-muted);
+	border: var(--border-width) var(--border-style) var(--color-border);
 	border-radius: var(--radius);
 }
 
@@ -278,7 +297,7 @@ nav {
 .post-header {
 	text-align: left;
 	font-size: var(--font-size-h3);
-	color: var(--color-muted);
+	color: var(--color-border);
 	margin: var(--space-xs);
 }
 
