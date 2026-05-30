@@ -190,7 +190,8 @@ nav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: var(--border-width-thick) var(--border-style-interactive) var(--color-border);
+	border: var(--border-width-thick) var(--border-style-interactive)
+		var(--color-border);
 	flex-direction: column;
 	gap: var(--space-s);
 	box-sizing: border-box;
