@@ -1,8 +1,11 @@
-INSERT INTO posts (slug, header, subheader, post_content, sources)
-VALUES ('what-is-jli', 
-  'What is JLI?', 
-  'Foundations',
-  '
+INSERT INTO
+  posts (slug, header, subheader, post_content, sources)
+VALUES
+  (
+    'what-is-jli',
+    'What is JLI?',
+    'Foundations',
+    '
 
         <div class="post-content">
           <h3 class="post-header" id="introduction">Introduction</h3>
@@ -89,7 +92,8 @@ VALUES ('what-is-jli',
             platform for that, but it takes time. Let’s trust each other.
           </p>
         </div>
-  ', '
+  ',
+    '
 
           <h3 class="post-header" id="sources-heading">Sources</h3>
           <ul>
@@ -112,4 +116,5 @@ VALUES ('what-is-jli',
               - The web page for this project (which you are currently viewing)
             </li>
           </ul>
-  ');
+  '
+  );
