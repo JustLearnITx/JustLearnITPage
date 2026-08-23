@@ -9,6 +9,10 @@ const db = new sqlite3.Database("./db/database.db", (error) => {
 	error ? console.error(`Error: ${error}`) : console.log("Connected to db");
 });
 
+app.get("/", (req, res) =>
+	res.sendFile(path.join(__dirname, "public/index.html")),
+);
+
 app.get("/courses", (req, res) => {
 	res.sendFile(path.join(__dirname, "public/pages/courses.html"));
 	db.all(
@@ -17,6 +21,10 @@ app.get("/courses", (req, res) => {
 		(error, rows) => (error ? console.error(error) : console.log(rows)),
 	);
 });
+
+app.get("/linktree", (req, res) =>
+	res.sendFile(path.join(__dirname, "public/pages/linktree.html")),
+);
 
 app.use(express.static("./public"));
 
