@@ -1,12 +1,19 @@
 INSERT INTO
-  posts (slug, header, subheader, post_content, sources)
+  posts (
+    slug,
+    header,
+    subheader,
+    short_description,
+    post_content,
+    sources
+  )
 VALUES
   (
     'what-is-jli',
     'What is JLI?',
     'Foundations',
+    '<p class="short-desc">An introduction to Just Learn IT and what you can expect from upcoming courses.</p>',
     '
-
         <div class="post-content">
           <h3 class="post-header" id="introduction">Introduction</h3>
           <p>

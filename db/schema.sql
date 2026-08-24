@@ -3,6 +3,7 @@ CREATE TABLE posts (
   slug TEXT UNIQUE NOT NULL,
   header TEXT NOT NULL,
   subheader TEXT NOT NULL,
+  short_description TEXT NOT NULL,
   post_content TEXT NOT NULL,
   sources TEXT NOT NULL,
   is_public INTEGER DEFAULT 1 NOT NULL,
