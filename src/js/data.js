@@ -12,13 +12,15 @@ class PostDB {
 		});
 	}
 
-	async getPostsViewJSON(res) {
+	async getPosts() {
 		if (!this.db) await this.connectToDB();
-		this.db.all(
-			"SELECT id, slug, header, subheader, short_description, is_public, created_at, updated_at FROM posts WHERE is_public = 1",
-			[],
-			(error, rows) => (error ? console.error(error) : res.json(rows)),
-		);
+		return new Promise((resolve, reject) => {
+			this.db.all(
+				"SELECT id, slug, header, subheader, short_description, is_public, created_at, updated_at FROM posts WHERE is_public = 1",
+				[],
+				(error, rows) => (error ? reject(error) : resolve(rows)),
+			);
+		});
 	}
 }
 
