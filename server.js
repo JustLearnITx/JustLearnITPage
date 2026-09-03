@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import PostDB from "./src/js/data.js";
+import "dotenv/config";
 
 const __dirname = import.meta.dirname;
 
@@ -29,4 +30,4 @@ app.get("/linktree", (req, res) =>
 
 app.use(express.static("./public"));
 
-app.listen(6969, () => console.log("test"));
+app.listen(process.env.SERVER_PORT, () => console.log("test"));

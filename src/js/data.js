@@ -1,4 +1,5 @@
 import sqlite3 from "sqlite3";
+import "dotenv/config";
 
 class PostDB {
 	constructor() {
@@ -7,7 +8,7 @@ class PostDB {
 
 	async connectToDB() {
 		if (this.db) return;
-		this.db = new sqlite3.Database("./db/database.db", (error) => {
+		this.db = new sqlite3.Database(process.env.DB_PATH, (error) => {
 			error ? console.error(`Error: ${error}`) : console.log("Connected to db");
 		});
 	}
