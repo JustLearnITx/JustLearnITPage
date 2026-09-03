@@ -12,7 +12,7 @@ VALUES
     'what-is-jli',
     'What is JLI?',
     'Foundations',
-    '<p class="short-desc">An introduction to Just Learn IT and what you can expect from upcoming courses.</p>',
+    'An introduction to Just Learn IT and what you can expect from upcoming courses.',
     '
         <div class="post-content">
           <h3 class="post-header" id="introduction">Introduction</h3>

@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json } from "express";
 import path from "path";
 import PostDB from "./src/js/data.js";
 import "dotenv/config";
