@@ -20,6 +20,13 @@ app.get("/api/posts", async (req, res) => {
 	}
 });
 
+app.post("/api/posts", (req, res) => {
+	const token = req.headers.token;
+	token === process.env.TOKEN
+		? res.json({ message: "OK" })
+		: res.status(401).json({ error: "invalid token" });
+});
+
 app.get("/courses", (req, res) => {
 	res.sendFile(path.join(__dirname, "public/pages/courses.html"));
 });
