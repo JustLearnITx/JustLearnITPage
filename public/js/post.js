@@ -1,4 +1,4 @@
-const urlSlug = new URLSearchParams(window.location.search).get("slug");
+const urlSlug = window.location.pathname.substring(1);
 
 const fetchPostView = async () => {
 	try {

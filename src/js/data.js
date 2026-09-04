@@ -16,7 +16,7 @@ class PostDB {
 	async getPosts() {
 		if (!this.db) await this.connectToDB();
 		return new Promise((resolve, reject) => {
-			this.db.all
+			this.db.all(
 				"SELECT id, slug, header, subheader, short_description, is_public, updated_at FROM posts WHERE is_public = 1 ORDER BY updated_at DESC",
 				[],
 				(error, rows) => (error ? reject(error) : resolve(rows)),
