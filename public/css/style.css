@@ -407,7 +407,7 @@ nav {
 
 @media (max-width: 480px) {
 	#content-header {
-		font-size: calc(2.5 * var(--unit));
+		font-size: calc(2 * var(--unit));
 	}
 
 	#courses-content {

@@ -43,6 +43,10 @@ app.get("/linktree", (req, res) =>
 	res.sendFile(path.join(__dirname, "public/pages/linktree.html")),
 );
 
+app.get("/:slug", (req, res) => {
+	res.sendFile(path.join(__dirname, "public/pages/post.html"));
+});
+
 app.use(express.static("./public"));
 
-app.listen(process.env.SERVER_PORT, () => console.log("test"));
+app.listen(process.env.SERVER_PORT, "0.0.0.0", () => console.log("test"));
