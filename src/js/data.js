@@ -16,10 +16,21 @@ class PostDB {
 	async getPosts() {
 		if (!this.db) await this.connectToDB();
 		return new Promise((resolve, reject) => {
-			this.db.all(
-				"SELECT id, slug, header, subheader, short_description, is_public, created_at, updated_at FROM posts WHERE is_public = 1",
+			this.db.all
+				"SELECT id, slug, header, subheader, short_description, is_public, updated_at FROM posts WHERE is_public = 1 ORDER BY updated_at DESC",
 				[],
 				(error, rows) => (error ? reject(error) : resolve(rows)),
+			);
+		});
+	}
+
+	async getPostBySlug(slug) {
+		if (!this.db) await this.connectToDB();
+		return new Promise((resolve, reject) => {
+			this.db.get(
+				"SELECT header, subheader, post_content, sources FROM posts WHERE is_public = 1 AND slug = ?",
+				[slug],
+				(error, row) => (error ? reject(error) : resolve(row)),
 			);
 		});
 	}

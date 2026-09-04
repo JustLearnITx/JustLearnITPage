@@ -15,6 +15,7 @@ const insertCourses = async () => {
 	container.innerHTML = posts
 		.map((post) => {
 			const postHTMl = `
+			<a class="course-anchor" href="/pages/post.html?slug=${post.slug}">
 			<div class="course-post" data-id="${post.id}">
 				<h2 class="course-header">${post.header}</h2>
 				<p class="short-desc">
@@ -24,6 +25,7 @@ const insertCourses = async () => {
 					>${new Date(post.updated_at.split(" ")[0]).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</time
 				>
 			</div>
+			</a>
 			`;
 			return postHTMl;
 		})

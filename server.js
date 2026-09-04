@@ -20,6 +20,14 @@ app.get("/api/posts", async (req, res) => {
 	}
 });
 
+app.get("/api/posts/:slug", async (req, res) => {
+	try {
+		res.json(await PostDB.getPostBySlug(req.params.slug));
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+});
+
 app.post("/api/posts", (req, res) => {
 	const token = req.headers.token;
 	token === process.env.TOKEN
