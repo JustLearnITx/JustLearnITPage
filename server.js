@@ -7,6 +7,8 @@ const __dirname = import.meta.dirname;
 
 const app = express();
 
+app.use(json());
+
 app.get("/", (req, res) => {
 	PostDB.connectToDB();
 	res.sendFile(path.join(__dirname, "public/index.html"));
@@ -28,11 +30,16 @@ app.get("/api/posts/:slug", async (req, res) => {
 	}
 });
 
-app.post("/api/posts", (req, res) => {
+app.post("/api/posts", async (req, res) => {
 	const token = req.headers.token;
-	token === process.env.TOKEN
-		? res.json({ message: "OK" })
-		: res.status(401).json({ error: "invalid token" });
+	if (token === process.env.TOKEN) {
+		try {
+			await PostDB.createPost(req.body);
+			res.json({ message: "Post created" });
+		} catch (error) {
+			res.status(500).json({ error: error.message });
+		}
+	} else res.status(401).json({ error: "invalid token" });
 });
 
 app.get("/courses", (req, res) => {
