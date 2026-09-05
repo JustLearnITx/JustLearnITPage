@@ -16,6 +16,10 @@ app.get("/", (req, res) => {
 
 app.get("/api/posts", async (req, res) => {
 	try {
+		res.set(
+			"Cache-Control",
+			`public, max-age=${process.env.POSTS_LIST_CACHE_MAX_AGE}`,
+		);
 		res.json(await PostDB.getPosts());
 	} catch (error) {
 		res.status(500).json({ error: error.message });
@@ -24,6 +28,10 @@ app.get("/api/posts", async (req, res) => {
 
 app.get("/api/posts/:slug", async (req, res) => {
 	try {
+		res.set(
+			"Cache-Control",
+			`public, max-age=${process.env.POST_DETAIL_CACHE_MAX_AGE}`,
+		);
 		res.json(await PostDB.getPostBySlug(req.params.slug));
 	} catch (error) {
 		res.status(500).json({ error: error.message });
@@ -58,7 +66,9 @@ app.get("/pages/post/:slug", (req, res) => {
 	res.sendFile(path.join(__dirname, "public/pages/post.html"));
 });
 
-app.use(express.static("./public"));
+app.use(
+	express.static("./public", { maxAge: process.env.STATIC_CACHE_MAX_AGE }),
+);
 
 app.listen(process.env.SERVER_PORT, "0.0.0.0", () =>
 	console.log("Server is on"),
