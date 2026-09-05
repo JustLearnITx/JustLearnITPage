@@ -60,4 +60,6 @@ app.get("/pages/post/:slug", (req, res) => {
 
 app.use(express.static("./public"));
 
-app.listen(process.env.SERVER_PORT, "0.0.0.0", () => console.log("test"));
+app.listen(process.env.SERVER_PORT, "0.0.0.0", () =>
+	console.log("Server is on"),
+);

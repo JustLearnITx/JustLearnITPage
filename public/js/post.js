@@ -26,6 +26,7 @@ const insertPost = async () => {
 		'<section id="sources" aria-labelledby="sources-heading">' +
 		postData.sources +
 		"</section>";
+	document.body.classList.add("loaded");
 };
 
 insertPost();

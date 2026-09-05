@@ -30,6 +30,7 @@ const insertCourses = async () => {
 			return postHTMl;
 		})
 		.join("");
+	document.body.classList.add("loaded");
 };
 
 insertCourses();
