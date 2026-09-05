@@ -329,6 +329,25 @@ nav {
 	margin-bottom: var(--space-m);
 }
 
+/* Insert post form */
+.form-fields {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: var(--space-s);
+	width: 25vw;
+}
+
+.helper-buttons {
+	display: flex;
+	margin-bottom: var(--space-s);
+	justify-content: space-evenly;
+}
+
+.helper-buttons button {
+	width: 12vw;
+	height: 3vh;
+}
+
 /* ==========================================================================
    6. RESPONSIVE OVERRIDES
    ========================================================================== */

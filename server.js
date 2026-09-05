@@ -43,7 +43,11 @@ app.get("/linktree", (req, res) =>
 	res.sendFile(path.join(__dirname, "public/pages/linktree.html")),
 );
 
-app.get("/:slug", (req, res) => {
+app.get("/admin", (req, res) =>
+	res.sendFile(path.join(__dirname, "public/pages/admin.html")),
+);
+
+app.get("/pages/post/:slug", (req, res) => {
 	res.sendFile(path.join(__dirname, "public/pages/post.html"));
 });
 

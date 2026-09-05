@@ -15,7 +15,7 @@ const insertCourses = async () => {
 	container.innerHTML = posts
 		.map((post) => {
 			const postHTMl = `
-			<a class="course-anchor" href="/${post.slug}">
+			<a class="course-anchor" href="/pages/post/${post.slug}">
 			<div class="course-post" data-id="${post.id}">
 				<h2 class="course-header">${post.header}</h2>
 				<p class="short-desc">

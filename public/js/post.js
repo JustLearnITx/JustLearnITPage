@@ -1,4 +1,4 @@
-const urlSlug = window.location.pathname.substring(1);
+const urlSlug = window.location.pathname.split("/").at(-1);
 
 const fetchPostView = async () => {
 	try {
