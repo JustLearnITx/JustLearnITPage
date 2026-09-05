@@ -67,7 +67,9 @@ app.get("/pages/post/:slug", (req, res) => {
 });
 
 app.use(
-	express.static("./public", { maxAge: process.env.STATIC_CACHE_MAX_AGE }),
+	express.static(process.env.STATIC_FILES_DIR, {
+		maxAge: process.env.STATIC_CACHE_MAX_AGE,
+	}),
 );
 
 app.listen(process.env.SERVER_PORT, "0.0.0.0", () =>
