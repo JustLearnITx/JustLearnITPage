@@ -77,6 +77,12 @@ body {
 	color: var(--color-text);
 	background-color: var(--color-surface);
 	font-family: var(--font-main);
+	opacity: 0;
+	transition: opacity 0.6s;
+}
+
+.loaded {
+	opacity: 1;
 }
 
 a {
@@ -327,6 +333,25 @@ nav {
 
 #sources ul li {
 	margin-bottom: var(--space-m);
+}
+
+/* Insert post form */
+.form-fields {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: var(--space-s);
+	width: 25vw;
+}
+
+.helper-buttons {
+	display: flex;
+	margin-bottom: var(--space-s);
+	justify-content: space-evenly;
+}
+
+.helper-buttons button {
+	width: 12vw;
+	height: 3vh;
 }
 
 /* ==========================================================================

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta
+			name="description"
+			content="JustLearnIT - Learn, grow. Free IT courses and resources."
+		/>
+		<meta name="author" content="ohey" />
+		<title>Just Learn IT | Create post</title>
+		<link href="/css/style.css" rel="stylesheet" />
+		<link rel="icon" type="image/x-icon" href="/img/Logo.ico" />
+		<script defer src="/js/admin.js"></script>
+	</head>
+	<body>
+		<main id="main-content">
+			<h1 id="content-header">CREATE NEW POST;</h1>
+			<form autocomplete="off">
+				<span class="helper-buttons">
+					<button id="post-section" type="button">
+						Insert section
+					</button>
+					<button id="post-source" type="button">
+						Insert source
+					</button>
+				</span>
+				<span class="form-fields">
+					<label for="slug">Slug:</label>
+					<input required type="text" id="slug" />
+				</span>
+				<span class="form-fields">
+					<label for="header">Header:</label>
+					<input required type="text" id="header" />
+				</span>
+				<span class="form-fields">
+					<label for="subheader">Subheader:</label>
+					<input required type="text" id="subheader" />
+				</span>
+				<span class="form-fields">
+					<label for="short-description">Short description:</label>
+					<textarea
+						required
+						name="short-description"
+						id="short-description"
+					></textarea>
+				</span>
+				<span class="form-fields">
+					<label for="post-content">Post content:</label>
+					<textarea
+						required
+						name="post-content"
+						rows="20"
+						id="post-content"
+					></textarea>
+				</span>
+				<span class="form-fields">
+					<label for="sources-field">Sources:</label>
+					<textarea
+						required
+						rows="10"
+						name="sources"
+						id="sources-field"
+					></textarea>
+				</span>
+				<span class="form-fields">
+					<label for="token">Token:</label>
+					<input required type="password" id="token" />
+				</span>
+				<span class="form-fields">
+					<button id="create-post" type="button">Create post</button>
+				</span>
+			</form>
+		</main>
+	</body>
+</html>

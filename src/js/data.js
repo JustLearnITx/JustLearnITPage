@@ -34,6 +34,24 @@ class PostDB {
 			);
 		});
 	}
+
+	async createPost(postData) {
+		if (!this.db) await this.connectToDB();
+		return new Promise((resolve, reject) => {
+			this.db.run(
+				"INSERT INTO posts (slug, header, subheader, short_description, post_content, sources) VALUES (?, ?, ?, ?, ?, ?)",
+				[
+					postData.slug,
+					postData.header,
+					postData.subheader,
+					postData.shortDescription,
+					postData.postContent,
+					postData.postSources,
+				],
+				(error) => (error ? reject(error) : resolve(true)),
+			);
+		});
+	}
 }
 
 export default new PostDB();

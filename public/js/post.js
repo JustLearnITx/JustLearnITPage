@@ -1,4 +1,4 @@
-const urlSlug = window.location.pathname.substring(1);
+const urlSlug = window.location.pathname.split("/").at(-1);
 
 const fetchPostView = async () => {
 	try {
@@ -26,6 +26,7 @@ const insertPost = async () => {
 		'<section id="sources" aria-labelledby="sources-heading">' +
 		postData.sources +
 		"</section>";
+	document.body.classList.add("loaded");
 };
 
 insertPost();
