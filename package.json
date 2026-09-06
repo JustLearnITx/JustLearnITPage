@@ -22,9 +22,11 @@
 	"type": "module",
 	"main": "scripts/server.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "node build.js"
 	},
 	"dependencies": {
+		"compression": "^1.8.1",
 		"dotenv": "^17.4.2",
 		"express": "^5.2.1",
 		"sqlite3": "^6.0.1"

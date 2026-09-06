@@ -26,13 +26,26 @@ const minifyCSS = async () => {
 };
 
 const minifyHTML = async () => {
-	const result = await minify({
+	await minify({
 		compressor: minifyHtml,
 		input: "public/index.html",
 		output: "dist/index.html",
 	});
+
+	const files = readdirSync("public/pages");
+	await Promise.all(
+		files.map((file) =>
+			minify({
+				compressor: minifyHtml,
+				input: `public/pages/${file}`,
+				output: `dist/pages/${file}`,
+			}),
+		),
+	);
 };
 
-// minifyJS();
-// minifyCSS();
-// minifyHTML();
+const build = async () => {
+	await Promise.all([minifyJS(), minifyCSS(), minifyHTML()]);
+};
+
+build();

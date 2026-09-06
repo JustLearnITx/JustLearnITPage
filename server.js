@@ -2,16 +2,20 @@ import express, { json } from "express";
 import path from "path";
 import PostDB from "./src/js/data.js";
 import "dotenv/config";
+import compression from "compression";
 
 const __dirname = import.meta.dirname;
 
 const app = express();
 
 app.use(json());
+app.use(compression());
 
 app.get("/", (req, res) => {
 	PostDB.connectToDB();
-	res.sendFile(path.join(__dirname, "public/index.html"));
+	res.sendFile(
+		path.join(__dirname, `${process.env.STATIC_FILES_DIR}/index.html`),
+	);
 });
 
 app.get("/api/posts", async (req, res) => {
@@ -51,19 +55,27 @@ app.post("/api/posts", async (req, res) => {
 });
 
 app.get("/courses", (req, res) => {
-	res.sendFile(path.join(__dirname, "public/pages/courses.html"));
+	res.sendFile(
+		path.join(__dirname, `${process.env.STATIC_FILES_DIR}/pages/courses.html`),
+	);
 });
 
 app.get("/linktree", (req, res) =>
-	res.sendFile(path.join(__dirname, "public/pages/linktree.html")),
+	res.sendFile(
+		path.join(__dirname, `${process.env.STATIC_FILES_DIR}/pages/linktree.html`),
+	),
 );
 
 app.get("/admin", (req, res) =>
-	res.sendFile(path.join(__dirname, "public/pages/admin.html")),
+	res.sendFile(
+		path.join(__dirname, `${process.env.STATIC_FILES_DIR}/pages/admin.html`),
+	),
 );
 
 app.get("/pages/post/:slug", (req, res) => {
-	res.sendFile(path.join(__dirname, "public/pages/post.html"));
+	res.sendFile(
+		path.join(__dirname, `${process.env.STATIC_FILES_DIR}/pages/post.html`),
+	);
 });
 
 app.use(
