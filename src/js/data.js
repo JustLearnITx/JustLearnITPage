@@ -8,8 +8,10 @@ class PostDB {
 
 	async connectToDB() {
 		if (this.db) return;
-		this.db = new sqlite3.Database(process.env.DB_PATH, (error) => {
-			error ? console.error(`Error: ${error}`) : console.log("Connected to db");
+		return new Promise((resolve, reject) => {
+			this.db = new sqlite3.Database(process.env.DB_PATH, (error) =>
+				error ? reject(error) : resolve(),
+			);
 		});
 	}
 

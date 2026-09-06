@@ -11,12 +11,13 @@ const app = express();
 app.use(json());
 app.use(compression());
 
-app.get("/", (req, res) => {
-	PostDB.connectToDB();
+const sendPage = (res, relativePath) => {
 	res.sendFile(
-		path.join(__dirname, `${process.env.STATIC_FILES_DIR}/index.html`),
+		path.join(__dirname, process.env.STATIC_FILES_DIR, relativePath),
 	);
-});
+};
+
+app.get("/", (req, res) => sendPage(res, "index.html"));
 
 app.get("/api/posts", async (req, res) => {
 	try {
@@ -54,29 +55,13 @@ app.post("/api/posts", async (req, res) => {
 	} else res.status(401).json({ error: "invalid token" });
 });
 
-app.get("/courses", (req, res) => {
-	res.sendFile(
-		path.join(__dirname, `${process.env.STATIC_FILES_DIR}/pages/courses.html`),
-	);
-});
+app.get("/courses", (req, res) => sendPage(res, "pages/courses.html"));
 
-app.get("/linktree", (req, res) =>
-	res.sendFile(
-		path.join(__dirname, `${process.env.STATIC_FILES_DIR}/pages/linktree.html`),
-	),
-);
+app.get("/linktree", (req, res) => sendPage(res, "pages/linktree.html"));
 
-app.get("/admin", (req, res) =>
-	res.sendFile(
-		path.join(__dirname, `${process.env.STATIC_FILES_DIR}/pages/admin.html`),
-	),
-);
+app.get("/admin", (req, res) => sendPage(res, "pages/admin.html"));
 
-app.get("/pages/post/:slug", (req, res) => {
-	res.sendFile(
-		path.join(__dirname, `${process.env.STATIC_FILES_DIR}/pages/post.html`),
-	);
-});
+app.get("/pages/post/:slug", (req, res) => sendPage(res, "pages/post.html"));
 
 app.use(
 	express.static(process.env.STATIC_FILES_DIR, {
