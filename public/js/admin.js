@@ -49,7 +49,10 @@ createPostButton.addEventListener("click", () => {
 		};
 		fetch("api/posts", {
 			method: "POST",
-			headers: { "Content-Type": "application/json", token: data.token },
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${data.token}`,
+			},
 			body: JSON.stringify(data),
 		});
 	} else alert("Fill all fields to add a post.");
