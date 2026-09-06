@@ -11,6 +11,11 @@ const app = express();
 app.use(json());
 app.use(compression());
 
+/**
+ * Function for sending static file to the client.
+ * @param {Object} res - object of the Express server response.
+ * @param {string} relativePath - relative path to the rendered web file.
+ **/
 const sendPage = (res, relativePath) => {
 	res.sendFile(
 		path.join(__dirname, process.env.STATIC_FILES_DIR, relativePath),
@@ -27,7 +32,8 @@ app.get("/api/posts", async (req, res) => {
 		);
 		res.json(await PostDB.getPosts());
 	} catch (error) {
-		res.status(500).json({ error: error.message });
+		console.error(error);
+		res.status(500).json({ error: "Internal server error." });
 	}
 });
 
@@ -39,7 +45,8 @@ app.get("/api/posts/:slug", async (req, res) => {
 		);
 		res.json(await PostDB.getPostBySlug(req.params.slug));
 	} catch (error) {
-		res.status(500).json({ error: error.message });
+		console.error(error);
+		res.status(500).json({ error: "Internal server error." });
 	}
 });
 
@@ -47,12 +54,24 @@ app.post("/api/posts", async (req, res) => {
 	const token = req.headers.token;
 	if (token === process.env.TOKEN) {
 		try {
+			const requiredFields = [
+				"slug",
+				"header",
+				"subheader",
+				"shortDescription",
+				"postContent",
+				"postSources",
+			];
+			const missingFields = requiredFields.some((field) => !req.body[field]);
+			if (missingFields)
+				return res.status(400).json({ error: "Missing required fields" });
 			await PostDB.createPost(req.body);
-			res.json({ message: "Post created" });
+			res.json({ message: "Post created." });
 		} catch (error) {
-			res.status(500).json({ error: error.message });
+			console.error(error);
+			res.status(500).json({ error: "Internal server error." });
 		}
-	} else res.status(401).json({ error: "invalid token" });
+	} else res.status(401).json({ error: "Invalid token." });
 });
 
 app.get("/courses", (req, res) => sendPage(res, "pages/courses.html"));

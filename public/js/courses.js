@@ -1,3 +1,7 @@
+/**
+ * Function for fetching data about available courses.
+ * @returns {Promise<Array|undefined>} Parsed data about posts or undefined.
+ **/
 const fetchCourseView = async () => {
 	try {
 		const response = await fetch("/api/posts");
@@ -9,9 +13,17 @@ const fetchCourseView = async () => {
 	}
 };
 
+/**
+ * Function for inserting available courses data into front end.
+ **/
 const insertCourses = async () => {
 	const container = document.getElementById("courses-content");
 	const posts = await fetchCourseView();
+	if (!posts) {
+		container.innerHTML = "<p>Failed to load posts.</p>";
+		document.body.classList.add("loaded");
+		return;
+	}
 	container.innerHTML = posts
 		.map((post) => {
 			const postHTMl = `
