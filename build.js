@@ -4,6 +4,9 @@ import { terser } from "@node-minify/terser";
 import { lightningCss } from "@node-minify/lightningcss";
 import { minifyHtml } from "@node-minify/minify-html";
 
+/**
+ * Function used to minify all JavaScript files used by static web content.
+ **/
 const minifyJS = async () => {
 	const files = readdirSync("public/js");
 	await Promise.all(
@@ -17,14 +20,20 @@ const minifyJS = async () => {
 	);
 };
 
+/**
+ * Function used to minify CSS file used in the app.
+ **/
 const minifyCSS = async () => {
-	const result = await minify({
+	await minify({
 		compressor: lightningCss,
 		input: "public/css/style.css",
 		output: "dist/css/style.css",
 	});
 };
 
+/**
+ * Function used to minify all HTML files used in the app.
+ **/
 const minifyHTML = async () => {
 	await minify({
 		compressor: minifyHtml,
@@ -44,6 +53,9 @@ const minifyHTML = async () => {
 	);
 };
 
+/**
+ * Function used to build all distribution files at once.
+ **/
 const build = async () => {
 	await Promise.all([minifyJS(), minifyCSS(), minifyHTML()]);
 };
