@@ -62,9 +62,11 @@ app.post("/api/posts", async (req, res) => {
 				"postContent",
 				"postSources",
 			];
-			const missingFields = requiredFields.some((field) => !req.body[field]);
-			if (missingFields)
-				return res.status(400).json({ error: "Missing required fields" });
+			const missingFields = requiredFields.filter((field) => !req.body[field]);
+			if (missingFields.length !== 0)
+				return res.status(400).json({
+					error: `Missing required fields ${missingFields.join(", ")}`,
+				});
 			await PostDB.createPost(req.body);
 			res.json({ message: "Post created." });
 		} catch (error) {
