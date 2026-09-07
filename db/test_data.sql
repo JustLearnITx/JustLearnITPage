@@ -115,7 +115,7 @@ VALUES
             </li>
             <li>
               <a
-                href="https://github.com/JustLearnITx/JustLearnITPage"
+                href="https://codeberg.org/JustLearnIT/JustLearnITPage"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Project repository</a

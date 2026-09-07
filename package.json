@@ -1,32 +1,40 @@
 {
-  "name": "justlearnitpage",
-  "version": "1.0.0",
-  "description": "The Just Learn IT project is an open-source solution for providing the best educational sources to let you learn what you desire.",
-  "keywords": [
-    "education",
-    "open-source",
-    "learning",
-    "IT",
-    "educational-resources"
-  ],
-  "homepage": "https://github.com/JustLearnITx/JustLearnITPage#readme",
-  "bugs": {
-    "url": "https://github.com/JustLearnITx/JustLearnITPage/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JustLearnITx/JustLearnITPage.git"
-  },
-  "license": "MIT",
-  "author": "ohey",
-  "type": "module",
-  "main": "scripts/server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1",
-    "sqlite3": "^6.0.1"
-  }
+	"name": "justlearnitpage",
+	"version": "1.0.0",
+	"description": "The Just Learn IT project is an open-source solution for providing the best educational sources to let you learn what you desire.",
+	"keywords": [
+		"education",
+		"open-source",
+		"learning",
+		"IT",
+		"educational-resources"
+	],
+	"homepage": "https://github.com/JustLearnITx/JustLearnITPage#readme",
+	"bugs": {
+		"url": "https://github.com/JustLearnITx/JustLearnITPage/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JustLearnITx/JustLearnITPage.git"
+	},
+	"license": "MIT",
+	"author": "ohey",
+	"type": "module",
+	"main": "scripts/server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "node build.js"
+	},
+	"dependencies": {
+		"compression": "^1.8.1",
+		"dotenv": "^17.4.2",
+		"express": "^5.2.1",
+		"sqlite3": "^6.0.1"
+	},
+	"devDependencies": {
+		"@node-minify/core": "^11.0.0",
+		"@node-minify/lightningcss": "^11.0.0",
+		"@node-minify/minify-html": "^11.0.0",
+		"@node-minify/terser": "^11.0.0"
+	}
 }

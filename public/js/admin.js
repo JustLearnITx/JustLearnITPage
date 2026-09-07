@@ -4,6 +4,9 @@ const postContentField = document.getElementById("post-content");
 const postSourcesField = document.getElementById("sources-field");
 const createPostButton = document.getElementById("create-post");
 
+/**
+ * Event listener for helper button which adds post section template into a field.
+ **/
 insertSectionButton.addEventListener("click", () => {
 	postContentField.value += `<div class="post-content">
 	<h3 class="post-header" id=""></h3>
@@ -11,6 +14,9 @@ insertSectionButton.addEventListener("click", () => {
 </div>`;
 });
 
+/**
+ * Event listener for helper button which adds post source template into a field.
+ **/
 insertSourceButton.addEventListener("click", () => {
 	postSourcesField.value += `<h3 class="post-header" id="sources-heading">Sources</h3>
 <ul>
@@ -27,6 +33,9 @@ insertSourceButton.addEventListener("click", () => {
 `;
 });
 
+/**
+ * Event listener for a form button to create a post basing on the data in the form.
+ **/
 createPostButton.addEventListener("click", () => {
 	if (document.querySelector("form").checkValidity()) {
 		const data = {
@@ -40,7 +49,10 @@ createPostButton.addEventListener("click", () => {
 		};
 		fetch("api/posts", {
 			method: "POST",
-			headers: { "Content-Type": "application/json", token: data.token },
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${data.token}`,
+			},
 			body: JSON.stringify(data),
 		});
 	} else alert("Fill all fields to add a post.");
