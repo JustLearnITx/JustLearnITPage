@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.git
+.env
+.gitignore
+.env.example
+dist/*
+!dist/fonts/**
+!dist/img/**
+db

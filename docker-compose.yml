@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        SERVER_PORT: ${SERVER_PORT}
+
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+
+    volumes:
+    - ./db:/app/db
+
+    env_file:
+      - .env
