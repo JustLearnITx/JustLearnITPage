@@ -424,6 +424,7 @@ nav {
 @media (max-width: 768px) {
 	#courses-content {
 		grid-template-columns: 1fr;
+		grid-auto-rows: 180px;
 		gap: var(--unit);
 		padding: var(--unit);
 		height: 80vh;
