@@ -2,7 +2,7 @@ import { readdirSync } from "fs";
 import { minify } from "@node-minify/core";
 import { terser } from "@node-minify/terser";
 import { lightningCss } from "@node-minify/lightningcss";
-import { minifyHtml } from "@node-minify/minify-html";
+import { htmlMinifier } from "@node-minify/html-minifier";
 
 /**
  * Function used to minify all JavaScript files used by static web content.
@@ -36,7 +36,7 @@ const minifyCSS = async () => {
  **/
 const minifyHTML = async () => {
 	await minify({
-		compressor: minifyHtml,
+		compressor: htmlMinifier,
 		input: "public/index.html",
 		output: "dist/index.html",
 	});
@@ -45,7 +45,7 @@ const minifyHTML = async () => {
 	await Promise.all(
 		files.map((file) =>
 			minify({
-				compressor: minifyHtml,
+				compressor: htmlMinifier,
 				input: `public/pages/${file}`,
 				output: `dist/pages/${file}`,
 			}),
