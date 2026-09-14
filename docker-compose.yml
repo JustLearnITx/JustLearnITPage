@@ -4,12 +4,45 @@ services:
       context: .
       args:
         SERVER_PORT: ${SERVER_PORT}
+
     image: oheyek/justlearnitpage-app:latest
-    ports:
-      - "${SERVER_PORT}:${SERVER_PORT}"
+
+    expose:
+      - "${SERVER_PORT}"
 
     volumes:
-    - ./db:/app/db
+      - ./db:/app/db
 
     env_file:
       - .env
+
+    networks:
+      - web
+
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2
+    env_file:
+      - .env
+    container_name: caddy
+    restart: unless-stopped
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+
+    networks:
+      - web
+
+networks:
+  web:
+
+volumes:
+  caddy_data:
+  caddy_config:
