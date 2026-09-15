@@ -6,6 +6,8 @@ import { htmlMinifier } from "@node-minify/html-minifier";
 import { createHash } from "crypto";
 import path from "path";
 
+const assetMap = {};
+
 /**
  * Function to create hash based on provided content.
  * @param {string} content - Content to get hash from.
@@ -32,6 +34,7 @@ const minifyJS = async () => {
 			const outputPath = path.join("dist/js", outputFile);
 			writeFileSync(outputPath, content);
 			unlinkSync(`dist/js/${file}`);
+			assetMap[file] = outputFile;
 		}),
 	);
 };
@@ -51,6 +54,7 @@ const minifyCSS = async () => {
 	const outputPath = path.join("dist/css", outputFile);
 	writeFileSync(outputPath, content);
 	unlinkSync("dist/css/style.css");
+	assetMap["style.css"] = outputFile;
 };
 
 /**
@@ -62,16 +66,26 @@ const minifyHTML = async () => {
 		input: "public/index.html",
 		output: "dist/index.html",
 	});
+	let indexContent = readFileSync("dist/index.html", "utf-8");
+	for (const [oldName, NewName] of Object.entries(assetMap)) {
+		indexContent = indexContent.replaceAll(oldName, NewName);
+	}
+	writeFileSync("dist/index.html", indexContent);
 
 	const files = readdirSync("public/pages");
 	await Promise.all(
-		files.map((file) =>
-			minify({
+		files.map(async (file) => {
+			await minify({
 				compressor: htmlMinifier,
 				input: `public/pages/${file}`,
 				output: `dist/pages/${file}`,
-			}),
-		),
+			});
+			let content = readFileSync(`dist/pages/${file}`, "utf-8");
+			for (const [oldName, newName] of Object.entries(assetMap)) {
+				content = content.replaceAll(oldName, newName);
+			}
+			writeFileSync(`dist/pages/${file}`, content);
+		}),
 	);
 };
 
@@ -79,7 +93,11 @@ const minifyHTML = async () => {
  * Function used to build all distribution files at once.
  **/
 const build = async () => {
-	await Promise.all([minifyJS(), minifyCSS(), minifyHTML()]);
+	await Promise.all([minifyJS(), minifyCSS()]);
+	await minifyHTML();
 };
 
-build();
+build().catch((err) => {
+	console.error(err);
+	process.exit(1);
+});
