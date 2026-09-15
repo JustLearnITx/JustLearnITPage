@@ -6,19 +6,26 @@ import { htmlMinifier } from "@node-minify/html-minifier";
 import { createHash } from "crypto";
 import path from "path";
 
+/**
+ * Maps unhashed source names (e.g. "app.js", "style.css") to their hashed
+ * dist names so HTML can be rewritten to reference them. Populated as a side
+ * effect of minifyJS/minifyCSS.
+ */
 const assetMap = {};
 
 /**
- * Function to create hash based on provided content.
- * @param {string} content - Content to get hash from.
- * @returns {string} Short MD5 hash (6 characters) calculated from provided content.
- **/
+ * Short (6-char) MD5 hash of content, used for cache-busting filenames.
+ * @param {string} content - Content to hash.
+ * @returns {string} First 6 hex characters of the MD5 digest.
+ */
 const getHash = (content) =>
 	createHash("md5").update(content).digest("hex").slice(0, 6);
 
 /**
- * Function used to minify all JavaScript files used by static web content with a specific hash.
- **/
+ * Minifies every JS file in public/js into dist/js, renames each to
+ * `<name>.<hash>.js` for cache busting, and records the old->new name in
+ * assetMap.
+ */
 const minifyJS = async () => {
 	const files = readdirSync("public/js");
 	await Promise.all(
@@ -40,8 +47,9 @@ const minifyJS = async () => {
 };
 
 /**
- * Function used to minify CSS file used in the app and write that with special hash.
- **/
+ * Minifies public/css/style.css into dist/css/style.<hash>.css and records
+ * the old->new name in assetMap.
+ */
 const minifyCSS = async () => {
 	await minify({
 		compressor: lightningCss,
@@ -58,8 +66,11 @@ const minifyCSS = async () => {
 };
 
 /**
- * Function used to minify all HTML files used in the app.
- **/
+ * Minifies public/index.html into dist/index.html and every file in
+ * public/pages into dist/pages, then replaces asset references in all HTML
+ * with their hashed names from assetMap. Must run after minifyJS/minifyCSS
+ * so the map is populated.
+ */
 const minifyHTML = async () => {
 	await minify({
 		compressor: htmlMinifier,
@@ -67,8 +78,8 @@ const minifyHTML = async () => {
 		output: "dist/index.html",
 	});
 	let indexContent = readFileSync("dist/index.html", "utf-8");
-	for (const [oldName, NewName] of Object.entries(assetMap)) {
-		indexContent = indexContent.replaceAll(oldName, NewName);
+	for (const [oldName, newName] of Object.entries(assetMap)) {
+		indexContent = indexContent.replaceAll(oldName, newName);
 	}
 	writeFileSync("dist/index.html", indexContent);
 
@@ -90,8 +101,9 @@ const minifyHTML = async () => {
 };
 
 /**
- * Function used to build all distribution files at once.
- **/
+ * Builds dist/: minifies JS and CSS in parallel, then minifies and rewrites
+ * HTML asset references. Mirrors dist/ layout of public/.
+ */
 const build = async () => {
 	await Promise.all([minifyJS(), minifyCSS()]);
 	await minifyHTML();
