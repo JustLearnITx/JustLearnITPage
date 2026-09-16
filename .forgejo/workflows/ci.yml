@@ -1,4 +1,4 @@
-name: CI
+name: Docker CI
 
 on:
   push:
@@ -6,17 +6,12 @@ on:
       - dev
 
 jobs:
-  test:
+  build-and-push:
     runs-on: codeberg-tiny
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-         node-version: 22
-
-      - name: Install deps
-        run: npm ci
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
