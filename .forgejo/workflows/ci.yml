@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: codeberg-tiny
+    runs-on: codeberg-medium
 
     steps:
       - name: Checkout
