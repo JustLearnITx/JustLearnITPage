@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: https://codeberg.org/actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: https://codeberg.org/actions/setup-node@v4
+        uses: actions/setup-node@v4
         with:
          node-version: 22
 
