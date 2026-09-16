@@ -1,4 +1,4 @@
-name: Docker CI
+name: Dockerless CI
 
 on:
   push:
@@ -6,12 +6,16 @@ on:
       - dev
 
 jobs:
-  build-and-push:
-    runs-on: codeberg-medium
+  build:
+    runs-on: codeberg-tiny
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      - name: Build image with Buildah
+        run: |
+          buildah --storage-driver=vfs bud -t my-app:latest .
+
+      - name: List images
+        run: buildah images
