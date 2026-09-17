@@ -90,9 +90,6 @@ app.use(
 	}),
 );
 
-app.listen(
-	process.env.SERVER_PORT,
-	"0.0.0.0",
-	() => console.log("Server is on"),
-	console.log("test3"),
+app.listen(process.env.SERVER_PORT, "0.0.0.0", () =>
+	console.log("Server is on"),
 );
