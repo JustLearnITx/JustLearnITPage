@@ -1,4 +1,4 @@
-name: Build Docker Image
+name: Build & Deploy
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - dev
 
 jobs:
-  docker:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,3 +25,14 @@ jobs:
       - name: Push image
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/justlearnitpage-app:latest
+
+      - name: SSH Deploy to VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            cd ~/jli-page
+            docker compose pull
+            docker compose up -d

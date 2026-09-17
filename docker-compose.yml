@@ -21,9 +21,6 @@ services:
 
     restart: unless-stopped
 
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
-
   caddy:
     image: caddy:2
     env_file:
@@ -42,14 +39,6 @@ services:
 
     networks:
       - web
-
-
-  watchtower:
-    image: ghcr.io/nicholas-fedor/watchtower:latest
-    restart: unless-stopped
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30 --cleanup --label-enable
 
 networks:
   web:
