@@ -1,4 +1,4 @@
-name: Mirror Test CI
+name: Build Docker Image
 
 on:
   push:
@@ -6,23 +6,12 @@ on:
       - dev
 
 jobs:
-  test:
+  docker:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Show commit info
-        run: |
-          echo "Workflow triggered!"
-          echo "Commit: ${{ github.sha }}"
-          echo "Branch: ${{ github.ref_name }}"
-
-      - name: Install dependencies
-        run: |
-          if [ -f package.json ]; then
-            npm ci
-          else
-            echo "No Node project detected"
-          fi
+      - name: Build image
+        run: docker build -t my-app:latest .
