@@ -7,11 +7,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-dist/*
-!dist/img/
-!dist/fonts/
-!dist/img/**
-!dist/fonts/**
+dist
 docker-compose-local.yml
 
 # Diagnostic reports (https://nodejs.org/api/report.html)

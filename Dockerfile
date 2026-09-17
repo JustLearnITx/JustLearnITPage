@@ -23,8 +23,8 @@ ENV NODE_ENV=production
 RUN npm ci --omit=dev
 
 COPY --from=build /app/dist ./dist
-COPY dist/fonts /app/dist/fonts
-COPY dist/img /app/dist/img
+COPY public/fonts /app/dist/fonts
+COPY public/img /app/dist/img
 COPY server.js /app/server.js
 COPY src/ /app/src
 
