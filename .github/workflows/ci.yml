@@ -1,12 +1,75 @@
-name: Build & Deploy
+name: Build Docs + Docker + Deploy
 
 on:
   push:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  build-and-deploy:
+
+  # =========================
+  # 1. DOXYGEN DOCS
+  # =========================
+  build-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install ONLY theme dependency
+        run: npm install @jothepro/doxygen-awesome-css@2.5.0 --no-save
+
+      - name: Install Doxygen & Graphviz
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen graphviz
+
+      - name: Prepare theme
+        run: |
+          mkdir -p docs/theme
+          cp node_modules/@jothepro/doxygen-awesome-css/doxygen-awesome.css docs/theme/
+          cp node_modules/@jothepro/doxygen-awesome-css/doxygen-awesome-sidebar-only.css docs/theme/
+
+      - name: Generate documentation
+        run: doxygen Doxyfile
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs/html
+
+
+  # =========================
+  # 2. DEPLOY DOCS
+  # =========================
+  deploy-docs:
+    needs: build-docs
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+
+
+  # =========================
+  # 3. DOCKER BUILD
+  # =========================
+  build-docker:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,13 +89,22 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/justlearnitpage-app:latest
 
-      - name: SSH Deploy to VPS
+
+  # =========================
+  # 4. VPS DEPLOY
+  # =========================
+  deploy-vps:
+    needs: build-docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SSH Deploy
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          port: ${{ secrets.PORT}}
+          port: ${{ secrets.VPS_PORT }}
           script: |
             cd ~/jli-page
             docker compose pull

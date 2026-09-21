@@ -52,8 +52,8 @@ HTML_COLORSTYLE_GAMMA  = 80
 SEARCHENGINE           = YES
 
 # Site-styled theme assets
-HTML_EXTRA_STYLESHEET  = node_modules/@jothepro/doxygen-awesome-css/doxygen-awesome.css \
-                         node_modules/@jothepro/doxygen-awesome-css/doxygen-awesome-sidebar-only.css \
+HTML_EXTRA_STYLESHEET = docs/theme/doxygen-awesome.css \
+                         docs/theme/doxygen-awesome-sidebar-only.css \
                          doxygen/doxygen-extra.css
 HTML_EXTRA_FILES       = public/fonts/jetbrains-mono.woff2
 PROJECT_LOGO           = public/img/icon-doxygen.png
