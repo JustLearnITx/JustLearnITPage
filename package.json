@@ -32,6 +32,7 @@
 		"sqlite3": "^6.0.1"
 	},
 	"devDependencies": {
+		"@jothepro/doxygen-awesome-css": "github:jothepro/doxygen-awesome-css#v2.5.0",
 		"@node-minify/core": "^11.0.0",
 		"@node-minify/html-minifier": "^11.0.0",
 		"@node-minify/lightningcss": "^11.0.0",

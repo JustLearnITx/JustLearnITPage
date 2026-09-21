@@ -1,0 +1,76 @@
+/* JustLearnITPage overrides for doxygen-awesome-css.
+   Mirrors public/css/style.css: dark-only site palette, JetBrains Mono,
+   1rem radius. Highest-specificity selectors so the dark palette wins in
+   every mode (light OS / dark OS / with or without the toggle class). */
+
+@font-face {
+	font-family: "JetBrains Mono";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("jetbrains-mono.woff2") format("woff2");
+}
+
+html,
+html:not(.light-mode),
+html.dark-mode {
+	color-scheme: dark;
+
+	/* JetBrains Mono everywhere, like the site (--font-main) */
+	--font-family: "JetBrains Mono", monospace;
+	--font-family-monospace: "JetBrains Mono", monospace;
+
+	/* Site palette (public/css/style.css :root) */
+	--primary-color: lightskyblue;
+	--primary-dark-color: lightskyblue;
+	--primary-light-color: lightskyblue;
+	--on-primary-color: #000;
+
+	--page-background-color: #000;
+	--page-foreground-color: #fff;
+	--page-secondary-foreground-color: gray;
+	--separator-color: gray;
+	--side-nav-background: #000;
+
+	--code-background: #000;
+	--tablehead-background: #000;
+	--blockquote-background: #000;
+	--blockquote-foreground: gray;
+
+	/* Site radius: --radius: 1rem */
+	--border-radius-small: 1rem;
+	--border-radius-medium: 1rem;
+	--border-radius-large: 1rem;
+
+	/* Dark, matching the site's code/highlight contrast */
+	--fragment-background: #000;
+	--fragment-foreground: #fff;
+	--fragment-keyword: #cc99cd;
+	--fragment-keywordtype: #ab99cd;
+	--fragment-keywordflow: #e08000;
+	--fragment-token: #7ec699;
+	--fragment-comment: #999;
+	--fragment-link: #98c0e3;
+	--fragment-preprocessor: #65cabe;
+	--fragment-linenumber-color: #ccc;
+	--fragment-linenumber-background: #111;
+	--fragment-linenumber-border: #333;
+
+	/* Links: bold + underline, like the site (style.css a) */
+	--link-color: lightskyblue;
+}
+
+/* The site's hover inversion is white-bg / black-text (style.css hover) */
+.memtitle,
+.memitem,
+.directory .levels,
+.summary .summary-list a,
+.nav-tabs,
+.ui-resizable-e {
+	border-color: gray;
+}
+
+a {
+	font-weight: 700;
+	text-decoration: underline;
+}

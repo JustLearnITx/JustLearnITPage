@@ -15,7 +15,7 @@ const assetMap = {};
 
 /**
  * Short (6-char) MD5 hash of content, used for cache-busting filenames.
- * @param {string} content - Content to hash.
+ * @param content - Content to hash.
  * @returns {string} First 6 hex characters of the MD5 digest.
  */
 const getHash = (content) =>
@@ -23,7 +23,7 @@ const getHash = (content) =>
 
 /**
  * Minifies every JS file in public/js into dist/js, renames each to
- * `<name>.<hash>.js` for cache busting, and records the old->new name in
+ * &lt;name&gt;.&lt;hash&gt;.js for cache busting, and records the old->new name in
  * assetMap.
  */
 const minifyJS = async () => {
@@ -47,7 +47,7 @@ const minifyJS = async () => {
 };
 
 /**
- * Minifies public/css/style.css into dist/css/style.<hash>.css and records
+ * Minifies public/css/style.css into dist/css/style.&lt;hash&gt;.css and records
  * the old->new name in assetMap.
  */
 const minifyCSS = async () => {
