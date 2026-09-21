@@ -20,6 +20,7 @@ RUN apk add --no-cache sqlite curl
 WORKDIR /app
 COPY package*.json ./
 ENV NODE_ENV=production
+ENV SERVER_PORT=${SERVER_PORT}
 RUN npm ci --omit=dev
 
 COPY --from=build /app/dist ./dist
@@ -29,7 +30,7 @@ COPY server.js /app/server.js
 COPY src/ /app/src
 
 HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
-  CMD curl -f `http://localhost:${SERVER_PORT}`/ || exit 1
+  CMD curl -f http://localhost:${SERVER_PORT}/ || exit 1
 
 EXPOSE ${SERVER_PORT}
 USER node

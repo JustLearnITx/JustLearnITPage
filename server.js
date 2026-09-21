@@ -51,7 +51,7 @@ app.get("/api/posts/:slug", async (req, res) => {
 });
 
 app.post("/api/posts", async (req, res) => {
-	const token = req.headers.authorization.replace("Bearer ", "");
+	const token = (req.headers.authorization || "").replace("Bearer ", "");
 	if (token === process.env.TOKEN) {
 		try {
 			const requiredFields = [
