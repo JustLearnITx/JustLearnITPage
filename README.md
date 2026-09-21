@@ -48,6 +48,8 @@ node server.js
 
 ## Documentation
 
+Live docs: **https://justlearnitx.github.io/JustLearnITPage/**
+
 Requires the installed deps from `npm install` (the theme loads from `node_modules`).
 
 ```sh
