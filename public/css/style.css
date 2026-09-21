@@ -312,6 +312,15 @@ nav {
 	margin: var(--space-m) var(--space-xs);
 }
 
+.highlighted {
+	color: lightskyblue;
+	font-weight: bolder;
+}
+
+.highlighted-link {
+	text-decoration-thickness: 2px;
+}
+
 /* Sources */
 #sources {
 	padding: var(--space-xl) var(--space-l);
