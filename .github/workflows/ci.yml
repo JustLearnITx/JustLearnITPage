@@ -29,7 +29,7 @@ jobs:
           cache: npm
 
       - name: Install ONLY theme dependency
-        run: npm install @jothepro/doxygen-awesome-css@2.5.0 --no-save
+        run: npm install github:jothepro/doxygen-awesome-css#v2.5.0 --no-save
 
       - name: Install Doxygen & Graphviz
         run: |
