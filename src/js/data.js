@@ -40,7 +40,7 @@ class PostDB {
 
 	/**
 	 * Method for getting information about public post basing on its slug.
-	 * @param {string} slug - unique identifier of a post which is included in url.
+	 * @param slug - unique identifier of a post which is included in url.
 	 * @returns {Promise<Object>} Promise with object of a single post or undefined if not found.
 	 **/
 	async getPostBySlug(slug) {
@@ -56,7 +56,7 @@ class PostDB {
 
 	/**
 	 * Method for creating new post in the database.
-	 * @param {Object} postData - object of data of a new post.
+	 * @param postData - object of data of a new post.
 	 * @returns {Promise<boolean>} Promise which resolves after successfully added post to database.
 	 **/
 	async createPost(postData) {

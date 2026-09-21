@@ -1,0 +1,91 @@
+PROJECT_NAME           = "JustLearnITPage"
+PROJECT_BRIEF          = "Free educational text materials on programming, technology, and digital skills."
+OUTPUT_DIRECTORY       = docs
+OUTPUT_LANGUAGE        = English
+
+# =========================
+# INPUT (JS PROJECT)
+# =========================
+INPUT                  = server.js \
+                         build.js \
+                         src/ \
+                         public/js/
+
+FILE_PATTERNS         = *.js
+RECURSIVE              = YES
+
+EXCLUDE_PATTERNS       = */tests/* \
+                         */node_modules/* \
+                         */__pycache__/* \
+                         */.git/*
+
+# =========================
+# PARSING (JAVASCRIPT)
+# =========================
+EXTENSION_MAPPING      = js=JavaScript
+MARKDOWN_SUPPORT       = YES
+AUTOLINK_SUPPORT       = YES
+
+# Extract everything (good for JS projects)
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+
+# =========================
+# OUTPUT
+# =========================
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+GENERATE_LATEX         = NO
+
+# doxygen-awesome sidebar-only theme
+GENERATE_TREEVIEW      = YES
+DISABLE_INDEX          = NO
+FULL_SIDEBAR           = NO
+HTML_COLORSTYLE        = LIGHT
+HTML_COLORSTYLE_HUE    = 120
+HTML_COLORSTYLE_SAT    = 0
+HTML_COLORSTYLE_GAMMA  = 80
+
+SEARCHENGINE           = YES
+
+# Site-styled theme assets
+HTML_EXTRA_STYLESHEET = docs/theme/doxygen-awesome.css \
+                         docs/theme/doxygen-awesome-sidebar-only.css \
+                         doxygen/doxygen-extra.css
+HTML_EXTRA_FILES       = public/fonts/jetbrains-mono.woff2
+PROJECT_LOGO           = public/img/icon-doxygen.png
+PROJECT_ICON           = public/img/Logo.ico
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
+STRIP_CODE_COMMENTS    = NO
+
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+
+# =========================
+# DIAGRAMS (Graphviz)
+# =========================
+HAVE_DOT               = YES
+CLASS_GRAPH            = YES
+COLLABORATION_GRAPH    = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+GRAPHICAL_HIERARCHY    = YES
+INCLUDE_GRAPH          = YES
+INCLUDED_BY_GRAPH      = YES
+
+DOT_IMAGE_FORMAT       = svg
+INTERACTIVE_SVG        = YES
+UML_LOOK               = YES
+
+# =========================
+# QUALITY OF DOCS
+# =========================
+JAVADOC_AUTOBRIEF      = YES
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES

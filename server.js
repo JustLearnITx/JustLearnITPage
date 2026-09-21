@@ -13,8 +13,8 @@ app.use(compression());
 
 /**
  * Function for sending static file to the client.
- * @param {Object} res - object of the Express server response.
- * @param {string} relativePath - relative path to the rendered web file.
+ * @param res - object of the Express server response.
+ * @param relativePath - relative path to the rendered web file.
  **/
 const sendPage = (res, relativePath) => {
 	res.sendFile(
