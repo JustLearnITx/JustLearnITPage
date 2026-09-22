@@ -141,6 +141,15 @@ nav {
 	gap: var(--space-l);
 }
 
+/* Footer — body is flex column, sits at bottom automatically */
+footer {
+	margin-top: auto;
+	padding: var(--space-s);
+	text-align: center;
+	font-size: calc(0.8 * var(--unit));
+	color: var(--color-border);
+}
+
 /* ==========================================================================
    4. COMPONENTS
    ========================================================================== */
@@ -378,19 +387,6 @@ nav {
 		padding: var(--space-l);
 		font-size: calc(2.5 * var(--unit));
 	}
-
-	.link-name {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		clip-path: inset(50%);
-		white-space: nowrap;
-		border: 0;
-	}
 }
 
 @media (max-width: 1400px) {
@@ -431,6 +427,20 @@ nav {
 }
 
 @media (max-width: 768px) {
+	/* ponytail: icons-only on phones; move breakpoint if wrapping hurts */
+	.link-name {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		clip-path: inset(50%);
+		white-space: nowrap;
+		border: 0;
+	}
+
 	#courses-content {
 		grid-template-columns: 1fr;
 		grid-auto-rows: 180px;
