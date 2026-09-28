@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta
+			name="description"
+			content="JustLearnIT - Learn, grow. Free IT courses and resources."
+		/>
+		<meta name="author" content="ohey" />
+		<title>Just Learn IT | Create post</title>
+		<link href="/css/style.css" rel="stylesheet" />
+		<link rel="icon" type="image/x-icon" href="/img/Logo.ico" />
+		<script defer src="/js/admin-course.js"></script>
+		<script defer src="/js/fade-in.js"></script>
+	</head>
+	<body>
+		<main id="main-content">
+			<h1 id="content-header">CREATE NEW COURSE;</h1>
+			<form autocomplete="off">
+				<span class="form-fields">
+					<label for="slug">Slug:</label>
+					<input required type="text" id="slug" />
+				</span>
+				<span class="form-fields">
+					<label for="title">Title:</label>
+					<input required type="text" id="title" />
+				</span>
+				<span class="form-fields">
+					<label for="short-description">Short description:</label>
+					<textarea
+						required
+						name="short-description"
+						id="short-description"
+					></textarea>
+				</span>
+				<span class="form-fields">
+					<label for="token">Token:</label>
+					<input required type="password" id="token" />
+				</span>
+				<span class="form-fields">
+					<button id="create-course" type="button">
+						Create course
+					</button>
+				</span>
+			</form>
+		</main>
+		<footer>&copy; 2026 JustLearnIT</footer>
+	</body>
+</html>

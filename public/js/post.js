@@ -8,8 +8,7 @@ const fetchPostView = async () => {
 	try {
 		const response = await fetch("/api/posts/" + urlSlug);
 		if (!response.ok) throw new Error(`Response status ${response.status}`);
-		const result = await response.json();
-		return result;
+		return response.json();
 	} catch (error) {
 		console.error(error.message);
 	}
