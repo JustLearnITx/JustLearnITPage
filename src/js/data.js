@@ -17,10 +17,9 @@ class PostDB {
 	async connectToDB() {
 		if (this.db) return;
 		return new Promise((resolve, reject) => {
-			this.db = 			new sqlite3.Database(process.env.DB_PATH, (error) =>
+			this.db = new sqlite3.Database(process.env.DB_PATH, (error) =>
 				error ? reject(error) : resolve(),
 			);
-			// ponytail: FKs are off by default in sqlite; without this posts.course_id can point at a deleted course.
 			this.db.run("PRAGMA foreign_keys = ON");
 		});
 	}
