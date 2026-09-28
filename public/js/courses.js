@@ -1,13 +1,12 @@
 /**
  * Function for fetching data about available courses.
- * @returns {Promise<Array|undefined>} Parsed data about posts or undefined.
+ * @returns {Promise<Array|undefined>} Parsed data about courses or undefined.
  **/
 const fetchCourseView = async () => {
 	try {
-		const response = await fetch("/api/posts");
+		const response = await fetch("/api/courses");
 		if (!response.ok) throw new Error(`Response status ${response.status}`);
-		const result = await response.json();
-		return result;
+		return response.json();
 	} catch (error) {
 		console.error(error.message);
 	}
@@ -18,29 +17,28 @@ const fetchCourseView = async () => {
  **/
 const insertCourses = async () => {
 	const container = document.getElementById("courses-content");
-	const posts = await fetchCourseView();
-	if (!posts) {
-		container.innerHTML = "<p>Failed to load posts.</p>";
+	const courses = await fetchCourseView();
+	if (!courses) {
+		container.innerHTML = "<p>Failed to load courses.</p>";
 		document.body.classList.add("loaded");
 		return;
 	}
-	container.innerHTML = posts
-		.map((post) => {
-			const postHTMl = `
-			<a class="course-anchor" href="/pages/post/${post.slug}">
-			<div class="course-post" data-id="${post.id}">
-				<h2 class="course-header">${post.header}</h2>
+	container.innerHTML = courses
+		.map(
+			(course) => `
+			<a class="course-anchor" href="/pages/courses/${course.slug}">
+			<div class="course-post" data-id="${course.id}">
+				<h2 class="course-header">${course.title}</h2>
 				<p class="short-desc">
-					${post.short_description}
+					${course.short_description}
 				</p>
-				<time class="update-date" datetime="${post.updated_at.split(" ")[0]}"
-					>${new Date(post.updated_at.split(" ")[0]).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</time
+				<time class="update-date" datetime="${course.created_at.split(" ")[0]}"
+					>${new Date(course.created_at.split(" ")[0]).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</time
 				>
 			</div>
 			</a>
-			`;
-			return postHTMl;
-		})
+			`,
+		)
 		.join("");
 	document.body.classList.add("loaded");
 };
