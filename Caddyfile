@@ -3,5 +3,5 @@ www.{$DOMAIN} {
 }
 
 {$DOMAIN} {
-    reverse_proxy app:{$SERVER_PORT}
+    reverse_proxy app:{$SERVER_PORT} # replace with actual port
 }
