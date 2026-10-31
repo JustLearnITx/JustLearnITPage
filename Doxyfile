@@ -55,7 +55,6 @@ SEARCHENGINE           = YES
 HTML_EXTRA_STYLESHEET = docs/theme/doxygen-awesome.css \
                          docs/theme/doxygen-awesome-sidebar-only.css \
                          doxygen/doxygen-extra.css
-HTML_EXTRA_FILES       = public/fonts/jetbrains-mono.woff2
 PROJECT_LOGO           = public/img/icon-doxygen.png
 PROJECT_ICON           = public/img/Logo.ico
 

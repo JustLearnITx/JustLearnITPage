@@ -1,0 +1,344 @@
+@import "tailwindcss";
+
+@theme {
+	--color-ink: #08090c;
+	--radius-card: 14px;
+	--shadow-card: 0 8px 24px -12px rgba(34, 211, 238, 0.25);
+	--animate-fade-up: fade-up 0.5s cubic-bezier(0, 0, 0.2, 1) both;
+}
+
+@keyframes fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.page-glow {
+	background-image:
+		radial-gradient(
+			55rem 34rem at 12% -12%,
+			rgba(34, 211, 238, 0.13),
+			transparent 60%
+		),
+		radial-gradient(
+			45rem 30rem at 105% -5%,
+			rgba(167, 139, 250, 0.13),
+			transparent 55%
+		);
+}
+
+.page-grid {
+	background-image:
+		linear-gradient(
+			to right,
+			rgba(255, 255, 255, 0.045) 1px,
+			transparent 1px
+		),
+		linear-gradient(
+			to bottom,
+			rgba(255, 255, 255, 0.045) 1px,
+			transparent 1px
+		);
+	background-size: 2.75rem 2.75rem;
+	mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+
+/* The server sets data-route; CSS picks the correct view before JS runs. */
+html[data-route="home"] #courses,
+html[data-route="courses"] #page-entry,
+html[data-route="courses"] #course-posts,
+html[data-route="courses"] #post-view,
+html[data-route="course"] #page-entry,
+html[data-route="course"] #courses,
+html[data-route="course"] #post-view,
+html[data-route="post"] #page-entry,
+html[data-route="post"] #courses,
+html[data-route="post"] #course-posts {
+	display: none;
+}
+
+html[data-route="courses"] #courses,
+html[data-route="course"] #course-posts,
+html[data-route="post"] #post-view {
+	display: flex;
+}
+
+.text-gradient {
+	@apply bg-linear-to-r from-cyan-300 to-violet-300 bg-clip-text text-transparent;
+}
+
+.search-field {
+	@apply w-full appearance-none rounded-[10px] border border-white/10 bg-white/5 px-4 py-3 font-sans text-base/[1.4] font-normal text-neutral-200 transition-[border-color,box-shadow] duration-150 ease-in-out placeholder:text-neutral-500 focus:border-cyan-300/60 focus:shadow-[0_0_0_3px_rgba(103,232,249,0.15)] focus:outline-none;
+}
+
+#post-content {
+	position: relative;
+	overflow-x: auto;
+}
+
+#courses-list,
+#course-posts-list {
+	overflow-wrap: anywhere;
+}
+
+#post-content > * {
+	min-width: 0;
+	position: relative;
+}
+
+#post-content h1,
+#post-content h2,
+#post-content h3,
+#post-content h4,
+#post-content h5,
+#post-content h6 {
+	color: #fff;
+	font-family: var(--font-sans);
+	letter-spacing: -0.035em;
+	text-wrap: balance;
+	overflow-wrap: anywhere;
+	margin-top: 3.4rem;
+	margin-bottom: 1.4rem;
+	font-weight: 700;
+	line-height: 1.02;
+}
+
+#post-content h1 {
+	font-size: clamp(2.4rem, 6vw, 4rem);
+}
+
+#post-content h2 {
+	font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+}
+
+#post-content h3 {
+	font-size: clamp(1.6rem, 3.6vw, 2.2rem);
+}
+
+#post-content h4 {
+	font-size: clamp(1.4rem, 3vw, 1.8rem);
+}
+
+#post-content p {
+	color: oklch(92% 0 none);
+	font-family: var(--font-sans);
+	overflow-wrap: anywhere;
+	max-width: 72ch;
+	margin: 1.4rem 0;
+	font-size: clamp(1.02rem, 1.4vw, 1.08rem);
+	line-height: 1.98;
+}
+
+#post-content strong {
+	color: #fff;
+	font-weight: 600;
+}
+
+#post-content a {
+	color: var(--color-cyan-300);
+	text-decoration: none;
+}
+
+#post-content a:hover {
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+#post-content ul,
+#post-content ol {
+	color: oklch(92% 0 none);
+	font-family: var(--font-sans);
+	gap: 0.8rem;
+	margin: 1.6rem 0 1.6rem 1.8rem;
+	display: grid;
+}
+
+#post-content ul {
+	list-style: outside;
+}
+
+#post-content ol {
+	list-style: decimal;
+}
+
+#post-content li {
+	overflow-wrap: anywhere;
+	max-width: 72ch;
+	line-height: 1.98;
+}
+
+#post-content li::marker {
+	color: #67e8f9d9;
+}
+
+#post-content pre {
+	background:
+		radial-gradient(150% 150% at 0 0, #22d3ee29, transparent 60%),
+		linear-gradient(#ffffff0f, #ffffff05);
+	border: 1px solid #ffffff2e;
+	border-radius: 20px;
+	max-width: 100%;
+	margin: 3rem 0;
+	padding: 1.8rem 2rem;
+	overflow-x: auto;
+	box-shadow:
+		0 100px 140px -100px #22d3ee66,
+		inset 0 1px #ffffff0f;
+}
+
+#post-content code {
+	color: oklch(95% 0.08 203);
+	font-family: var(--font-mono), ui-monospace, monospace;
+	font-size: 0.95rem;
+}
+
+#post-content pre code {
+	color: oklch(92% 0 none);
+	white-space: pre;
+}
+
+#post-content p code {
+	background: linear-gradient(90deg, #22d3ee2e, #a78bfa24);
+	border: 1px solid #ffffff29;
+	border-radius: 999px;
+	padding: 0.22rem 0.7rem;
+	box-shadow: inset 0 1px #ffffff1a;
+}
+
+#post-content :not(pre) > code {
+	overflow-wrap: anywhere;
+}
+
+#post-content table {
+	border-collapse: collapse;
+	display: block;
+	max-width: 100%;
+	margin: 2.6rem 0;
+	overflow-x: auto;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+}
+
+#post-content table th,
+#post-content table td {
+	border: 1px solid #ffffff1f;
+	padding: 0.65rem 0.9rem;
+	text-align: left;
+}
+
+#post-content img {
+	border: 1px solid #ffffff2e;
+	border-radius: 20px;
+	max-width: 100%;
+	height: auto;
+	margin: 3.2rem 0;
+	box-shadow: 0 110px 160px -110px #a78bfa73;
+}
+
+#post-content iframe,
+#post-content video,
+#post-content object,
+#post-content embed {
+	max-width: 100%;
+}
+
+#post-content blockquote {
+	color: oklch(84% 0 none);
+	overflow-wrap: anywhere;
+	background:
+		radial-gradient(130% 130% at 0 0, #22d3ee2e, transparent),
+		linear-gradient(90deg, #22d3ee24, transparent);
+	border: 1px solid #ffffff2e;
+	border-left: 2px solid transparent;
+	border-radius: 20px;
+	margin: 3.2rem 0;
+	padding: 1.6rem 2rem;
+	font-style: italic;
+	position: relative;
+	box-shadow: inset 0 1px #ffffff0f;
+}
+
+#post-content hr {
+	background: radial-gradient(60% 1px, #ffffff42, transparent);
+	border: none;
+	height: 1px;
+	margin: 4.6rem 0;
+}
+
+#sources {
+	border-top: 1px solid #ffffff29;
+	gap: 1rem;
+	margin-top: 4.6rem;
+	padding-top: 2.8rem;
+	display: grid;
+}
+
+#sources h2,
+#sources h3 {
+	color: #fff;
+	font-family: var(--font-sans);
+	letter-spacing: -0.02em;
+	overflow-wrap: anywhere;
+	margin: 0;
+	font-weight: 700;
+}
+
+#sources p,
+#sources li {
+	color: oklch(76% 0 none);
+	font-family: var(--font-sans);
+	overflow-wrap: anywhere;
+	margin: 0;
+	font-size: 1rem;
+	line-height: 1.9;
+}
+
+#sources ul,
+#sources ol {
+	gap: 0.6rem;
+	margin: 0 0 0 1.2rem;
+	display: grid;
+}
+
+#sources a {
+	color: var(--color-cyan-300);
+	text-decoration: none;
+}
+
+#sources a:hover {
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	#post-content > * {
+		animation: fade-up 0.5s cubic-bezier(0, 0, 0.2, 1) both;
+	}
+	#post-content > :nth-child(2) {
+		animation-delay: 0.04s;
+	}
+	#post-content > :nth-child(3) {
+		animation-delay: 0.08s;
+	}
+	#post-content > :nth-child(4) {
+		animation-delay: 0.12s;
+	}
+	#post-content > :nth-child(5) {
+		animation-delay: 0.16s;
+	}
+	#post-content > :nth-child(n + 6) {
+		animation-delay: 0.2s;
+	}
+}
+
+@media (max-width: 640px) {
+	#post-content pre {
+		padding: 1.4rem 1.2rem;
+		border-radius: 16px;
+	}
+}

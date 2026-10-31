@@ -8,43 +8,146 @@
 			content="JustLearnIT - Learn, grow. Free IT courses and resources."
 		/>
 		<meta name="author" content="ohey" />
-		<title>Just Learn IT | Create post</title>
+		<meta name="theme-color" content="#08090c" />
+		<title>Just Learn IT | Create course</title>
 		<link href="/css/style.css" rel="stylesheet" />
 		<link rel="icon" type="image/x-icon" href="/img/Logo.ico" />
 		<script defer src="/js/admin-course.js"></script>
-		<script defer src="/js/fade-in.js"></script>
 	</head>
-	<body>
-		<main id="main-content">
-			<h1 id="content-header">CREATE NEW COURSE;</h1>
-			<form autocomplete="off">
-				<span class="form-fields">
-					<label for="slug">Slug:</label>
-					<input required type="text" id="slug" />
-				</span>
-				<span class="form-fields">
-					<label for="title">Title:</label>
-					<input required type="text" id="title" />
-				</span>
-				<span class="form-fields">
-					<label for="short-description">Short description:</label>
+	<body
+		class="flex min-h-screen flex-col bg-ink font-mono text-neutral-200 antialiased selection:bg-cyan-300/30 selection:text-white"
+	>
+		<div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10">
+			<div
+				class="absolute inset-0 page-glow"
+			></div>
+			<div
+				class="absolute inset-0 page-grid"
+			></div>
+		</div>
+		<div
+			aria-hidden="true"
+			class="fixed inset-x-0 top-0 z-50 h-0.5 bg-linear-to-r from-cyan-300 to-violet-300 shadow-[0_0_12px_-1px_var(--color-cyan-300)]"
+		></div>
+
+		<header
+			class="sticky top-0 z-10 border-b border-white/10 bg-ink/70 backdrop-blur-md"
+		>
+			<div
+				class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-6 py-4"
+			>
+				<a
+					href="/"
+					class="flex items-center gap-2 text-lg font-mono font-bold tracking-wide text-white"
+				>
+					<span
+						class="size-2 rounded-full bg-cyan-300 motion-safe:animate-pulse"
+					></span>
+					JustLearnIT
+				</a>
+				<span
+					class="rounded-full border border-white/10 px-3 py-1 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-neutral-400"
+					>admin</span
+				>
+			</div>
+		</header>
+
+		<main class="mx-auto flex w-full max-w-3xl flex-1 flex-col px-6 py-12">
+			<h1
+				class="text-3xl font-bold font-sans leading-[1.05] tracking-tight text-white text-balance sm:text-5xl"
+			>
+				CREATE <span
+					class="bg-linear-to-r from-cyan-300 to-violet-300 bg-clip-text text-transparent"
+					>COURSE</span
+				>
+			</h1>
+			<p
+				class="mt-2 mb-8 font-sans text-[0.95rem]/6 font-normal text-neutral-400"
+			>
+				Add a new course category.
+			</p>
+
+			<form
+				autocomplete="off"
+				class="grid gap-5 rounded-card border border-white/10 bg-white/5 p-6"
+			>
+				<label class="flex flex-col gap-2">
+					<span
+						class="font-sans text-[0.7rem] uppercase tracking-[0.18em] text-neutral-400"
+						>Slug</span
+					>
+					<input
+						required
+						type="text"
+						id="slug"
+						class="w-full appearance-none rounded-[10px] border border-white/10 bg-white/5 px-4 py-3 font-mono text-[0.95rem] text-neutral-200 transition-[border-color,box-shadow] duration-150 ease-in-out placeholder:text-neutral-500 focus:border-cyan-300/60 focus:shadow-[0_0_0_3px_rgba(103,232,249,0.15)] focus:outline-none"
+					/>
+				</label>
+
+				<label class="flex flex-col gap-2">
+					<span
+						class="font-sans text-[0.7rem] uppercase tracking-[0.18em] text-neutral-400"
+						>Title</span
+					>
+					<input
+						required
+						type="text"
+						id="title"
+						class="w-full appearance-none rounded-[10px] border border-white/10 bg-white/5 px-4 py-3 font-mono text-[0.95rem] text-neutral-200 transition-[border-color,box-shadow] duration-150 ease-in-out placeholder:text-neutral-500 focus:border-cyan-300/60 focus:shadow-[0_0_0_3px_rgba(103,232,249,0.15)] focus:outline-none"
+					/>
+				</label>
+
+				<label class="flex flex-col gap-2">
+					<span
+						class="font-sans text-[0.7rem] uppercase tracking-[0.18em] text-neutral-400"
+						>Short description</span
+					>
 					<textarea
 						required
 						name="short-description"
 						id="short-description"
+						rows="3"
+						class="w-full appearance-none rounded-[10px] border border-white/10 bg-white/5 px-4 py-3 font-mono text-[0.95rem] text-neutral-200 transition-[border-color,box-shadow] duration-150 ease-in-out placeholder:text-neutral-500 focus:border-cyan-300/60 focus:shadow-[0_0_0_3px_rgba(103,232,249,0.15)] focus:outline-none"
 					></textarea>
-				</span>
-				<span class="form-fields">
-					<label for="token">Token:</label>
-					<input required type="password" id="token" />
-				</span>
-				<span class="form-fields">
-					<button id="create-course" type="button">
+				</label>
+
+				<label class="flex flex-col gap-2">
+					<span
+						class="font-sans text-[0.7rem] uppercase tracking-[0.18em] text-neutral-400"
+						>Token</span
+					>
+					<input
+						required
+						type="password"
+						id="token"
+						class="w-full appearance-none rounded-[10px] border border-white/10 bg-white/5 px-4 py-3 font-mono text-[0.95rem] text-neutral-200 transition-[border-color,box-shadow] duration-150 ease-in-out placeholder:text-neutral-500 focus:border-cyan-300/60 focus:shadow-[0_0_0_3px_rgba(103,232,249,0.15)] focus:outline-none"
+					/>
+				</label>
+
+				<div class="mt-2">
+					<button
+						id="create-course"
+						type="button"
+						class="cursor-pointer rounded-lg bg-white px-5 py-3 font-sans text-sm font-bold text-ink transition-colors hover:bg-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+					>
 						Create course
 					</button>
-				</span>
+				</div>
 			</form>
 		</main>
-		<footer>&copy; 2026 JustLearnIT</footer>
+
+		<footer
+			class="border-t border-white/10 py-8 text-center text-sm text-neutral-500"
+		>
+			&copy; 2026 JustLearnIT &middot; made with
+			<span class="text-cyan-300">&hearts;</span> by
+			<a
+				class="text-neutral-300 underline underline-offset-4 transition-colors hover:text-white"
+				href="https://github.com/oheyek"
+				target="_blank"
+				rel="noopener noreferrer"
+				>ohey</a
+			>
+		</footer>
 	</body>
 </html>
