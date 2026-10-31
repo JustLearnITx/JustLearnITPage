@@ -1,3 +1,7 @@
+www.{$DOMAIN} {
+    redir https://{$DOMAIN}{uri} permanent
+}
+
 {$DOMAIN} {
     reverse_proxy app:{$SERVER_PORT} # replace with actual port
 }

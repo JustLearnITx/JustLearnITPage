@@ -1,4 +1,12 @@
-import { readdirSync, writeFileSync, unlinkSync, readFileSync } from "fs";
+import {
+	readdirSync,
+	writeFileSync,
+	unlinkSync,
+	readFileSync,
+	rmSync,
+	mkdirSync,
+	cpSync,
+} from "fs";
 import { minify } from "@node-minify/core";
 import { terser } from "@node-minify/terser";
 import { lightningCss } from "@node-minify/lightningcss";
@@ -101,12 +109,19 @@ const minifyHTML = async () => {
 };
 
 /**
- * Builds dist/: minifies JS and CSS in parallel, then minifies and rewrites
- * HTML asset references. Mirrors dist/ layout of public/.
+ * Builds dist/: wipes any previous output, minifies JS and CSS in parallel,
+ * then minifies and rewrites HTML asset references. Mirrors dist/ layout of
+ * public/.
  */
 const build = async () => {
+	rmSync("dist", { recursive: true, force: true });
+	mkdirSync("dist/js", { recursive: true });
+	mkdirSync("dist/css", { recursive: true });
+	mkdirSync("dist/pages", { recursive: true });
 	await Promise.all([minifyJS(), minifyCSS()]);
 	await minifyHTML();
+	cpSync("public/img", "dist/img", { recursive: true });
+	cpSync("public/robots.txt", "dist/robots.txt");
 };
 
 build().catch((err) => {

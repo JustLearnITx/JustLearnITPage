@@ -17,10 +17,14 @@ class PostDB {
 	async connectToDB() {
 		if (this.db) return;
 		return new Promise((resolve, reject) => {
-			this.db = new sqlite3.Database(process.env.DB_PATH, (error) =>
-				error ? reject(error) : resolve(),
-			);
-			this.db.run("PRAGMA foreign_keys = ON");
+			this.db = new sqlite3.Database(process.env.DB_PATH, (error) => {
+				if (error) {
+					this.db = null;
+					return reject(error);
+				}
+				this.db.run("PRAGMA foreign_keys = ON");
+				resolve();
+			});
 		});
 	}
 
@@ -114,7 +118,10 @@ class PostDB {
 		if (!this.db) await this.connectToDB();
 		return new Promise((resolve, reject) => {
 			this.db.get(
-				"SELECT header, subheader, post_content, sources FROM posts WHERE is_public = 1 AND slug = ?",
+				`SELECT posts.header, posts.subheader, posts.post_content, posts.sources, posts.created_at, posts.updated_at, courses.slug AS course_slug
+				FROM posts
+				JOIN courses ON courses.id = posts.course_id
+				WHERE posts.is_public = 1 AND posts.slug = ?`,
 				[slug],
 				(error, row) => (error ? reject(error) : resolve(row)),
 			);
