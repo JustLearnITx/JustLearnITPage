@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+	<defs>
+		<radialGradient id="cyan" cx="0" cy="0" r="1" gradientTransform="translate(120 -40) rotate(35) scale(720 520)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#22d3ee" stop-opacity=".28"/>
+			<stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="violet" cx="0" cy="0" r="1" gradientTransform="translate(1120 40) rotate(145) scale(640 480)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#a78bfa" stop-opacity=".26"/>
+			<stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+		</radialGradient>
+		<linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+			<stop stop-color="#67e8f9"/>
+			<stop offset="1" stop-color="#c4b5fd"/>
+		</linearGradient>
+		<pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+			<path d="M44 0H0V44" fill="none" stroke="#ffffff" stroke-opacity=".045"/>
+		</pattern>
+	</defs>
+	<rect width="1200" height="630" fill="#08090c"/>
+	<rect width="1200" height="630" fill="url(#cyan)"/>
+	<rect width="1200" height="630" fill="url(#violet)"/>
+	<rect width="1200" height="630" fill="url(#grid)"/>
+	<rect x="80" y="78" width="238" height="40" rx="20" fill="none" stroke="#ffffff" stroke-opacity=".14"/>
+	<circle cx="104" cy="98" r="5" fill="#67e8f9"/>
+	<text x="120" y="104" font-family="Menlo, monospace" font-size="14" letter-spacing="3" fill="#a3a3a3">FREE &amp; OPEN SOURCE</text>
+	<text x="76" y="300" font-family="Menlo, monospace" font-size="96" font-weight="700" letter-spacing="-4" fill="#ffffff">JustLearn<tspan fill="url(#accent)">IT</tspan></text>
+	<text x="80" y="374" font-family="Helvetica, Arial, sans-serif" font-size="32" fill="#a3a3a3">A curated, no-fluff collection of</text>
+	<text x="80" y="418" font-family="Helvetica, Arial, sans-serif" font-size="32" fill="#a3a3a3">IT courses and resources.</text>
+	<rect x="80" y="506" width="1040" height="1" fill="#ffffff" fill-opacity=".12"/>
+	<text x="80" y="556" font-family="Menlo, monospace" font-size="24" fill="#67e8f9">justlearnit.cc</text>
+	<text x="1120" y="556" text-anchor="end" font-family="Menlo, monospace" font-size="24" fill="#737373">Learn, grow.</text>
+</svg>

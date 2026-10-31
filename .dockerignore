@@ -5,6 +5,4 @@ npm-debug.log
 .gitignore
 .env.example
 dist/*
-!dist/fonts/**
-!dist/img/**
 db

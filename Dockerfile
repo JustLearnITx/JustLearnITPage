@@ -1,4 +1,4 @@
-ARG NODE_VERSION=24.21.0
+ARG NODE_VERSION=24
 
 # ===== BUILD STAGE =====
 FROM node:${NODE_VERSION}-alpine AS build
@@ -10,29 +10,29 @@ RUN npm ci
 
 COPY build.js /app/build.js
 COPY public/ /app/public
-RUN node build.js
+RUN npm run build
 
 # ===== PRODUCTION STAGE =====
 FROM node:${NODE_VERSION}-alpine AS production
 
-RUN apk add --no-cache sqlite curl
+RUN apk upgrade --no-cache && apk add --no-cache sqlite
 
 WORKDIR /app
 COPY package*.json ./
 ENV NODE_ENV=production
-ENV SERVER_PORT=${SERVER_PORT}
-RUN npm ci --omit=dev
+RUN npm ci --omit=dev && npm cache clean --force
 
 COPY --from=build /app/dist ./dist
-COPY public/fonts /app/dist/fonts
-COPY public/img /app/dist/img
 COPY server.js /app/server.js
 COPY src/ /app/src
 
-HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
-  CMD curl -f http://localhost:${SERVER_PORT}/ || exit 1
+RUN rm -rf /usr/local/lib/node_modules \
+           /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack \
+           /opt/yarn* /usr/local/bin/yarn*
 
-EXPOSE ${SERVER_PORT}
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+  CMD node -e "fetch('http://localhost:'+process.env.SERVER_PORT+'/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+
 USER node
 
 CMD [ "node", "server.js" ]

@@ -1,76 +1,223 @@
 /* JustLearnITPage overrides for doxygen-awesome-css.
-   Mirrors public/css/style.css: dark-only site palette, JetBrains Mono,
-   1rem radius. Highest-specificity selectors so the dark palette wins in
-   every mode (light OS / dark OS / with or without the toggle class). */
-
-@font-face {
-	font-family: "JetBrains Mono";
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src: url("jetbrains-mono.woff2") format("woff2");
-}
+   Mirrors the public site: #08090c ink background, cyan/violet accents,
+   system monospace UI, sans content, 10/14/20px radii. */
 
 html,
 html:not(.light-mode),
 html.dark-mode {
 	color-scheme: dark;
 
-	/* JetBrains Mono everywhere, like the site (--font-main) */
-	--font-family: "JetBrains Mono", monospace;
-	--font-family-monospace: "JetBrains Mono", monospace;
+	/* Site UI uses the system monospace stack; content uses sans. */
+	--font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+		"Liberation Mono", "Courier New", monospace;
+	--font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco,
+		Consolas, "Liberation Mono", "Courier New", monospace;
+	--font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", "Noto Sans", Arial, sans-serif;
 
-	/* Site palette (public/css/style.css :root) */
-	--primary-color: lightskyblue;
-	--primary-dark-color: lightskyblue;
-	--primary-light-color: lightskyblue;
-	--on-primary-color: #000;
+	/* Site palette: cyan-300 + violet-300 on ink. */
+	--primary-color: #67e8f9;
+	--primary-dark-color: #22d3ee;
+	--primary-light-color: #c4b5fd;
+	--on-primary-color: #08090c;
+	--link-color: #67e8f9;
 
-	--page-background-color: #000;
-	--page-foreground-color: #fff;
-	--page-secondary-foreground-color: gray;
-	--separator-color: gray;
-	--side-nav-background: #000;
+	--page-background-color: #08090c;
+	--page-foreground-color: #e5e5e5;
+	--page-secondary-foreground-color: #a1a1a1;
+	--separator-color: rgba(255, 255, 255, 0.1);
+	--odd-color: rgba(255, 255, 255, 0.025);
+	--box-shadow: 0 8px 24px -12px rgba(34, 211, 238, 0.25);
 
-	--code-background: #000;
-	--tablehead-background: #000;
-	--blockquote-background: #000;
-	--blockquote-foreground: gray;
+	--header-background: rgba(8, 9, 12, 0.7);
+	--side-nav-background: #08090c;
+	--side-nav-foreground: #a1a1a1;
+	--toc-background: #08090c;
+	--toc-foreground: #a1a1a1;
+	--menu-selected-background: rgba(103, 232, 249, 0.12);
 
-	/* Site radius: --radius: 1rem */
-	--border-radius-small: 1rem;
-	--border-radius-medium: 1rem;
-	--border-radius-large: 1rem;
+	--searchbar-background: rgba(255, 255, 255, 0.05);
+	--searchbar-foreground: #e5e5e5;
+	--searchbar-border-radius: 10px;
 
-	/* Dark, matching the site's code/highlight contrast */
-	--fragment-background: #000;
-	--fragment-foreground: #fff;
-	--fragment-keyword: #cc99cd;
-	--fragment-keywordtype: #ab99cd;
-	--fragment-keywordflow: #e08000;
-	--fragment-token: #7ec699;
-	--fragment-comment: #999;
-	--fragment-link: #98c0e3;
-	--fragment-preprocessor: #65cabe;
-	--fragment-linenumber-color: #ccc;
-	--fragment-linenumber-background: #111;
-	--fragment-linenumber-border: #333;
+	--code-background: rgba(255, 255, 255, 0.06);
+	--code-foreground: #e5e5e5;
+	--section-code-background: rgba(103, 232, 249, 0.14);
+	--section-code-border: rgba(255, 255, 255, 0.16);
+	--tablehead-background: rgba(255, 255, 255, 0.05);
+	--blockquote-background: #0b0d12;
+	--blockquote-foreground: #d4d4d4;
 
-	/* Links: bold + underline, like the site (style.css a) */
-	--link-color: lightskyblue;
+	/* Site radii: search field 10px, cards 14px, code blocks 20px. */
+	--border-radius-small: 10px;
+	--border-radius-medium: 14px;
+	--border-radius-large: 20px;
+	--content-line-height: 30px;
+
+	/* Code highlighting uses the site's cyan/violet palette. */
+	--fragment-background: #0b0d12;
+	--fragment-foreground: #e5e5e5;
+	--fragment-keyword: #c4b5fd;
+	--fragment-keywordtype: #a5b4fc;
+	--fragment-keywordflow: #67e8f9;
+	--fragment-token: #67e8f9;
+	--fragment-comment: #a1a1a1;
+	--fragment-link: #67e8f9;
+	--fragment-preprocessor: #c4b5fd;
+	--fragment-linenumber-color: #a1a1a1;
+	--fragment-linenumber-background: rgba(255, 255, 255, 0.04);
+	--fragment-linenumber-border: rgba(255, 255, 255, 0.08);
+
+	/* Dark callouts, matching the site's low-contrast panels. */
+	--warning-color: rgba(251, 191, 36, 0.12);
+	--warning-color-dark: #fcd34d;
+	--warning-color-darker: #fde68a;
+	--note-color: rgba(103, 232, 249, 0.1);
+	--note-color-dark: #67e8f9;
+	--note-color-darker: #cffafe;
+	--todo-color: rgba(196, 181, 253, 0.12);
+	--todo-color-dark: #c4b5fd;
+	--todo-color-darker: #ddd6fe;
+	--deprecated-color: rgba(255, 255, 255, 0.05);
+	--deprecated-color-dark: #a1a1a1;
+	--deprecated-color-darker: #d4d4d4;
+	--bug-color: rgba(248, 113, 113, 0.12);
+	--bug-color-dark: #fca5a5;
+	--bug-color-darker: #fecaca;
+	--invariant-color: rgba(74, 222, 128, 0.12);
+	--invariant-color-dark: #86efac;
+	--invariant-color-darker: #bbf7d0;
 }
 
-/* The site's hover inversion is white-bg / black-text (style.css hover) */
+body {
+	background-color: var(--page-background-color);
+	background-image:
+		radial-gradient(
+			55rem 34rem at 12% -12%,
+			rgba(34, 211, 238, 0.13),
+			transparent 60%
+		),
+		radial-gradient(
+			45rem 30rem at 105% -5%,
+			rgba(167, 139, 250, 0.13),
+			transparent 55%
+		);
+	background-attachment: fixed;
+}
+
+/* Cyan-to-violet line at the top of the site. */
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0 0 auto;
+	height: 2px;
+	background: linear-gradient(to right, #67e8f9, #c4b5fd);
+	z-index: 9999;
+	pointer-events: none;
+}
+
+::selection {
+	background: rgba(103, 232, 249, 0.3);
+	color: #fff;
+}
+
+/* Content headings and prose use the site's sans stack; nav and code stay mono. */
+div.header .title,
+div.contents h1,
+div.contents h2:not(.memtitle),
+div.contents h3,
+div.contents h4,
+div.contents h5,
+div.contents h6 {
+	font-family: var(--font-family-sans);
+	letter-spacing: -0.03em;
+	color: #fff;
+	text-wrap: balance;
+}
+
+div.contents p,
+div.contents li,
+div.contents dd,
+div.contents dt {
+	font-family: var(--font-family-sans);
+}
+
+/* Site links: cyan, underlined on hover only. */
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+/* Top navigation follows the site header: muted text, white on hover. */
+.sm-dox a,
+.sm-dox a:focus,
+.tablist li a {
+	color: var(--page-secondary-foreground-color) !important;
+}
+
+.sm-dox a:hover,
+.sm-dox a:active,
+.tablist li a:hover {
+	color: #fff !important;
+}
+
+/* Site search field: 10px radius, subtle fill, cyan focus ring. */
+#MSearchBox {
+	box-shadow: inset 0 0 0 1px var(--separator-color);
+}
+
+#MSearchBox.MSearchBoxActive,
+#MSearchBox:focus-within {
+	box-shadow:
+		inset 0 0 0 1px rgba(103, 232, 249, 0.6),
+		0 0 0 3px rgba(103, 232, 249, 0.15);
+}
+
+/* Site code blocks: cyan tint, white border, 20px radius. */
+div.fragment,
+pre.fragment {
+	border-color: rgba(255, 255, 255, 0.18);
+	background:
+		radial-gradient(
+			150% 150% at 0 0,
+			rgba(34, 211, 238, 0.16),
+			transparent 60%
+		),
+		linear-gradient(rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+	box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Site inline code: cyan/violet pill. */
+code,
+span.tt {
+	background: linear-gradient(
+		90deg,
+		rgba(34, 211, 238, 0.18),
+		rgba(167, 139, 250, 0.14)
+	);
+	border-color: rgba(255, 255, 255, 0.16);
+	border-radius: 999px;
+}
+
+/* Cards and dividers use the site's white/10 borders. */
 .memtitle,
 .memitem,
 .directory .levels,
 .summary .summary-list a,
 .nav-tabs,
 .ui-resizable-e {
-	border-color: gray;
+	border-color: var(--separator-color);
 }
 
-a {
-	font-weight: 700;
-	text-decoration: underline;
+@media screen and (max-width: 767px) {
+	div.fragment,
+	pre.fragment {
+		border-left: 0;
+		border-right: 0;
+		border-radius: 0;
+	}
 }

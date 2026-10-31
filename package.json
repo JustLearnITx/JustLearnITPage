@@ -1,6 +1,6 @@
 {
 	"name": "justlearnitpage",
-	"version": "1.1.0",
+	"version": "2.0.0",
 	"description": "The Just Learn IT project is an open-source solution for providing the best educational sources to let you learn what you desire.",
 	"keywords": [
 		"education",
@@ -20,9 +20,10 @@
 	"license": "MIT",
 	"author": "ohey",
 	"type": "module",
-	"main": "scripts/server.js",
+	"main": "server.js",
 	"scripts": {
-		"build": "node build.js"
+		"tailwind": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/style.css --minify",
+		"build": "npm run tailwind && node build.js"
 	},
 	"dependencies": {
 		"compression": "^1.8.2",
@@ -35,6 +36,8 @@
 		"@node-minify/core": "^11.0.0",
 		"@node-minify/html-minifier": "^11.0.0",
 		"@node-minify/lightningcss": "^11.0.0",
-		"@node-minify/terser": "^11.0.0"
+		"@node-minify/terser": "^11.0.0",
+		"@tailwindcss/cli": "^4.3.3",
+		"tailwindcss": "^4.3.3"
 	}
 }

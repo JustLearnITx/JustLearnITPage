@@ -5,17 +5,17 @@ const createCourseButton = document.getElementById("create-course");
  **/
 createCourseButton.addEventListener("click", () => {
 	if (document.querySelector("form").checkValidity()) {
+		const token = document.getElementById("token").value;
 		const data = {
 			slug: document.getElementById("slug").value,
 			title: document.getElementById("title").value,
 			shortDescription: document.getElementById("short-description").value,
-			token: document.getElementById("token").value,
 		};
 		fetch("/api/courses", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
-				Authorization: `Bearer ${data.token}`,
+				Authorization: `Bearer ${token}`,
 			},
 			body: JSON.stringify(data),
 		})
